@@ -1,0 +1,7 @@
+{
+  "name": "TechAndFast",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -3,6 +3,22 @@
 
 /** Ionic CSS Variables **/
 :root {
+  /** Primary color */
+  --ion-color-primary-color: #FFC851;
+  --ion-color-primary-color-rgb: 255,200,81;
+  --ion-color-primary-color-contrast: #000000;
+  --ion-color-primary-color-contrast-rgb: 0,0,0;
+  --ion-color-primary-color-shade: #e0b047;
+  --ion-color-primary-color-tint: #ffce62;
+
+  /** Secondary color */
+  --ion-color-secondary-color: #DCE4E8;
+  --ion-color-secondary-color-rgb: 220,228,232;
+  --ion-color-secondary-color-contrast: #000000;
+  --ion-color-secondary-color-contrast-rgb: 0,0,0;
+  --ion-color-secondary-color-shade: #c2c9cc;
+  --ion-color-secondary-color-tint: #e0e7ea;
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -82,22 +98,6 @@
 	--ion-color-primary-background-color-contrast-rgb: 255,255,255;
 	--ion-color-primary-background-color-shade: #101315;
 	--ion-color-primary-background-color-tint: #2a2d2f;
-
-  /** Primary color */
-  --ion-color-primary-color: #FFC851;
-  --ion-color-primary-color-rgb: 255,200,81;
-  --ion-color-primary-color-contrast: #000000;
-  --ion-color-primary-color-contrast-rgb: 0,0,0;
-  --ion-color-primary-color-shade: #e0b047;
-  --ion-color-primary-color-tint: #ffce62;
-
-  /** Secondary color */
-  --ion-color-secondary-color: #DCE4E8;
-	--ion-color-secondary-color-rgb: 220,228,232;
-	--ion-color-secondary-color-contrast: #000000;
-	--ion-color-secondary-color-contrast-rgb: 0,0,0;
-	--ion-color-secondary-color-shade: #c2c9cc;
-	--ion-color-secondary-color-tint: #e0e7ea;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,6 +107,22 @@
    */
 
   body {
+    /** Primary color */
+    --ion-color-primary-color: #FFC851;
+    --ion-color-primary-color-rgb: 255,200,81;
+    --ion-color-primary-color-contrast: #000000;
+    --ion-color-primary-color-contrast-rgb: 0,0,0;
+    --ion-color-primary-color-shade: #e0b047;
+    --ion-color-primary-color-tint: #ffce62;
+
+    /** Secondary color */
+    --ion-color-secondary-color: #DCE4E8;
+    --ion-color-secondary-color-rgb: 220,228,232;
+    --ion-color-secondary-color-contrast: #000000;
+    --ion-color-secondary-color-contrast-rgb: 0,0,0;
+    --ion-color-secondary-color-shade: #c2c9cc;
+    --ion-color-secondary-color-tint: #e0e7ea;
+
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -178,21 +194,7 @@
     --ion-color-primary-background-color-shade: #101315;
     --ion-color-primary-background-color-tint: #2a2d2f;
 
-    /** Primary color */
-    --ion-color-primary-color: #FFC851;
-    --ion-color-primary-color-rgb: 255,200,81;
-    --ion-color-primary-color-contrast: #000000;
-    --ion-color-primary-color-contrast-rgb: 0,0,0;
-    --ion-color-primary-color-shade: #e0b047;
-    --ion-color-primary-color-tint: #ffce62;
 
-    /** Secondary color */
-    --ion-color-secondary-color: #DCE4E8;
-    --ion-color-secondary-color-rgb: 220,228,232;
-    --ion-color-secondary-color-contrast: #000000;
-    --ion-color-secondary-color-contrast-rgb: 0,0,0;
-    --ion-color-secondary-color-shade: #c2c9cc;
-    --ion-color-secondary-color-tint: #e0e7ea;
   }
 
   /*
@@ -207,7 +209,7 @@
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;
 
-    --ion-color-step-50: #0d0d0d;
+    --ion-color-step-50: #0d0d0d00;
     --ion-color-step-100: #1a1a1a;
     --ion-color-step-150: #262626;
     --ion-color-step-200: #333333;
@@ -233,9 +235,9 @@
   }
 
   .ios ion-modal {
-    --ion-background-color: var(--ion-color-step-100);
-    --ion-toolbar-background: var(--ion-color-step-150);
-    --ion-toolbar-border-color: var(--ion-color-step-250);
+   --ion-background-color: var(--ion-color-step-100);
+   --ion-toolbar-background: var(--ion-color-step-150);
+   --ion-toolbar-border-color: var(--ion-color-step-250);
   }
 
 
@@ -253,7 +255,7 @@
 
     --ion-border-color: #222222;
 
-    --ion-color-step-50: #1e1e1e;
+    /*--ion-color-step-50: #1e1e1e;*/
     --ion-color-step-100: #2a2a2a;
     --ion-color-step-150: #363636;
     --ion-color-step-200: #414141;

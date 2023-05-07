@@ -2,7 +2,11 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+
 :root {
+
   /** Primary color */
   --ion-color-primary-color: #FFC851;
   --ion-color-primary-color-rgb: 255,200,81;
@@ -209,7 +213,7 @@
     --ion-text-color: #ffffff;
     --ion-text-color-rgb: 255,255,255;
 
-    --ion-color-step-50: #0d0d0d00;
+    --ion-color-step-50: #3ac99500;
     --ion-color-step-100: #1a1a1a;
     --ion-color-step-150: #262626;
     --ion-color-step-200: #333333;

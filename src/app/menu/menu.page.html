@@ -1,0 +1,57 @@
+<ion-menu contentId="main-content">
+  <ion-content class="background-menu ion-padding ion-text-center">
+    <h3 routerLink="/register">HOME</h3>
+    <h3 routerLink="/menu">MENU</h3>
+    <h3 routerLink="/reset-password">PROMOTIONS</h3>
+    <h3>ABOUT</h3>
+    <h3>CONTACT</h3>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-row class="ion-justify-content-center">
+        <ion-img class="logo" src="../../assets/images/logo.png" alt="Tech and fast logotype"></ion-img>
+      </ion-row>
+      <ion-grid>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="6">
+            <ion-buttons>
+              <ion-menu-button style="color: white;"></ion-menu-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row class="ion-text-end">
+              <ion-col size="9" class="ion-text-end">
+                <ion-row style="display: block; text-align: right;" class="ion-text-end">
+                  <p style="margin: 0;">10.00€</p>
+                </ion-row>
+                <ion-row style="display: block; text-align: right;">
+                  <p style="margin: 0; font-size: 10px;">2 item - View cart</p>
+                </ion-row>
+              </ion-col >
+              <ion-col size="3"> 
+                <ion-icon size="large" name="cart-outline"></ion-icon>
+                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">5</ion-badge>
+              </ion-col>              
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="background-image: url('../../assets/images/banner.png');">
+            <p class="ion-text-center">Menu</p> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+  <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="false">
+    <swiper-slide *ngFor="let Category of Categories" (click)="onCategoryClick(Category.id)" 
+      [ngClass]="{'selected': selectedCategoryId === Category.id}" id="{{ Category.id }}" 
+      class="ion-text-center">
+      {{ Category.name }}
+    </swiper-slide>
+  </swiper-container>
+  
+</ion-content>

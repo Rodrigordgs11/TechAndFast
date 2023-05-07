@@ -1,0 +1,29 @@
+.logo{
+    width: 45%;
+    height: 45%;
+  }
+  
+  ion-content, ion-list {
+      --background: var(--ion-color-primary-background-color);
+  }
+  
+  .background-menu{
+      --background: var(--ion-color-primary-color);
+  }
+  
+  ion-badge {
+      background-color: #F2C35B;
+  }
+
+  swiper-container{
+    height: 6%;
+  }
+
+  swiper-slide {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .selected {
+    color: #F2C35B;
+  }

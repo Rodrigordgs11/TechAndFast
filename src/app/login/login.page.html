@@ -1,0 +1,100 @@
+<ion-menu contentId="main-content">
+  <ion-content class="background-menu ion-padding ion-text-center">
+    <h3 routerLink="/register">HOME</h3>
+    <h3 routerLink="/login">MENU</h3>
+    <h3 routerLink="/reset-password">PROMOTIONS</h3>
+    <h3>ABOUT</h3>
+    <h3>CONTACT</h3>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-row class="ion-justify-content-center">
+        <ion-img class="logo" src="../../assets/images/logo.png" alt="Tech and fast logotype"></ion-img>
+      </ion-row>
+      <ion-grid>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="6">
+            <ion-buttons>
+              <ion-menu-button style="color: white;"></ion-menu-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row class="ion-text-end">
+              <ion-col size="9" class="ion-text-end">
+                <ion-row style="display: block; text-align: right;" class="ion-text-end">
+                  <p style="margin: 0;">10.00€</p>
+                </ion-row>
+                <ion-row style="display: block; text-align: right;">
+                  <p style="margin: 0; font-size: 10px;">2 item - View cart</p>
+                </ion-row>
+              </ion-col >
+              <ion-col size="3"> 
+                <ion-icon size="large" name="cart-outline"></ion-icon>
+                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">5</ion-badge>
+              </ion-col>              
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="background-image: url('../../assets/images/banner.png');">
+             <p class="ion-text-center">Login</p> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+  <ion-row>
+    <ion-col size="12">
+    <ion-img src="../../assets/images/backgroundRegister.png" class="imagem-fundo" alt=""></ion-img>
+    </ion-col>  
+    <ion-col class="container-frente">
+      <form [formGroup]="loginForm" (Ngsubmit)="submit()" #formDir="ngForm">
+        <h3 class="ion-text-center">Login</h3>
+        <ion-input 
+          style="margin-bottom: 20px; --background: transparent;" 
+          class="inputs-form" 
+          type="text" 
+          label="Username" 
+          label-placement="floating" 
+          formControlName="username" 
+          fill="solid" 
+          required>
+        </ion-input>
+        <div *ngIf="username.invalid && formDir.submitted" style="padding-top: var(--ion-padding, 0px);">
+          <p *ngIf="username.errors?.['required']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Username cannot be empty</ion-text></p>
+        </div>
+        <ion-input 
+          style="margin-bottom: 20px; --background: transparent;" 
+          class="inputs-form" 
+          type="Password" 
+          fill="solid" 
+          label="Password" 
+          labelPlacement="floating" 
+          formControlName="password" 
+          required>
+        </ion-input>  
+        <div *ngIf="password.invalid && formDir.submitted">
+          <p *ngIf="password.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Password cannot be empty</ion-text></p>
+        </div>  
+        <ion-grid>
+          <ion-row style="margin-bottom: 20px;">
+            <ion-col size="1">
+              <ion-radio-group value="custom-checked">
+                <ion-radio value="custom" aria-label="Custom checkbox"></ion-radio>
+              </ion-radio-group>
+            </ion-col>
+            <ion-col size="11">
+              Remember Password
+            </ion-col> 
+          </ion-row>
+        </ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button type="submit" style="--background: #F2C35B; width: 200px; height: 35px;" class="" (click)="submit()">Login</ion-button>
+        </ion-row>  
+      </form>
+    </ion-col>  
+  </ion-row>  
+</ion-content>

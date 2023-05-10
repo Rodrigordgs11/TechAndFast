@@ -1,0 +1,84 @@
+<ion-menu contentId="main-content">
+  <ion-content class="background-menu ion-padding ion-text-center">
+    <h3 routerLink="/register">HOME</h3>
+    <h3 routerLink="/login">MENU</h3>
+    <h3 routerLink="/reset-password">PROMOTIONS</h3>
+    <h3>ABOUT</h3>
+    <h3>CONTACT</h3>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-row class="ion-justify-content-center">
+        <ion-img class="logo" src="../../assets/images/logo.png" alt="Tech and fast logotype"></ion-img>
+      </ion-row>
+      <ion-grid>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="6">
+            <ion-buttons>
+              <ion-menu-button style="color: white;"></ion-menu-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row class="ion-text-end">
+              <ion-col size="9" class="ion-text-end">
+                <ion-row style="display: block; text-align: right;" class="ion-text-end">
+                  <p style="margin: 0;">10.00€</p>
+                </ion-row>
+                <ion-row style="display: block; text-align: right;">
+                  <p style="margin: 0; font-size: 10px;">2 item - View cart</p>
+                </ion-row>
+              </ion-col >
+              <ion-col size="3"> 
+                <ion-icon size="large" name="cart-outline"></ion-icon>
+                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">5</ion-badge>
+              </ion-col>              
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="background-image: url('../../assets/images/banner.png');">
+             <p class="ion-text-center">Login</p> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+  <ion-row style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
+    <ion-col size="6">
+      <ion-img src="../../assets/images/pizzaProductDetail.png" alt=""></ion-img>
+      <ion-row style="margin-top: 10px;">
+        <ion-col size="4">
+          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+        </ion-col>
+        <ion-col size="4">
+          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+        </ion-col>
+        <ion-col size="4">
+          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="6">
+      <div style="margin-left: 10%;">
+        <h3>Vicent</h3>
+        <p style="font-weight: bold; font-size: 15px; color: #F2C35B;">2.00€</p>
+        <ion-row>
+          <ion-button  style="--padding-start: 15px; --padding-end: 15px; font-size: 15px;" shape="round">-</ion-button>
+          <p style="font-size: 20px; margin-top: 10px;">1</p>
+          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 10px;" shape="round">+</ion-button>
+          <ion-button style="font-size: 11px; width: 50%; color: black;">Add cart ></ion-button>
+        </ion-row>
+      </div>
+    </ion-col>
+    <p style="margin-left: 10px; margin-right: 10px;">Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-   roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand
+      Tossed crust. With more than 50 years of experience under our belts, we understand how 
+      to best serve our customers through tried and true service principles. Instead of following
+      trends, we set them. We create food were proud to serve and deliver it fast, with a smile.
+     Classic marinara sauce, authentic old-world pepperoni, all-natural Italian sausage, slow-roasted ham, hardwood smoked bacon, seasoned pork and beef. Best an our Hand 
+     Tossed crust. With more than 50 years of experience under our belts, we understand how to best serve our customers through tried and true service principles.
+     Instead of following trends, we set them. We create food we’re proud to serve and deliver it fast, with a smile.</p>
+  </ion-row>
+</ion-content>

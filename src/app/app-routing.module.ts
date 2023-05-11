@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'layout',
     loadChildren: () => import('./layout/layout.module').then( m => m.LayoutPageModule)
-  },  {
+  },
+  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
@@ -34,6 +35,13 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+  {
+    path: 'product-detail',
+    loadChildren: () => import('./product-detail/product-detail.module').then( m => m.ProductDetailPageModule)
+  },  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  }
 
 ];
 

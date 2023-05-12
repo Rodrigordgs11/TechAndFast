@@ -14,7 +14,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuPageRoutingModule  ],
+    MenuPageRoutingModule  
+  ],
   declarations: [MenuPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

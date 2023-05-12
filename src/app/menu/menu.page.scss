@@ -3,7 +3,7 @@
     height: 45%;
   }
   
-  ion-content, ion-list {
+  ion-content, ion-list, ion-toolbar {
       --background: var(--ion-color-primary-background-color);
   }
   
@@ -27,3 +27,35 @@
   .selected {
     color: #F2C35B;
   }
+    
+.background-product {
+  background-color: #202426; 
+  margin-left: 50px; 
+  margin-right: 50px; 
+  height: 300px; 
+  margin-top: 100px; 
+  z-index: 1;
+}
+
+.imgProduct{
+  width: 60%;
+  height: 60%;
+  z-index: 2; 
+  bottom: 70px; 
+  position: relative; 
+  display: block; 
+  margin: 0 auto;
+}
+
+h3{
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.containerProductAtributes{
+  position: absolute; 
+  top: 70%;
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  z-index: 2;
+}

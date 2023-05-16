@@ -1,13 +1,104 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-menu contentId="main-content">
+  <ion-content class="background-menu ion-padding ion-text-center">
+    <h3 routerLink="/register">HOME</h3>
+    <h3 routerLink="/menu">MENU</h3>
+    <h3 routerLink="/reset-password">PROMOTIONS</h3>
+    <h3>ABOUT</h3>
+    <h3>CONTACT</h3>
+  </ion-content>
+</ion-menu>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content [fullscreen]="true" class="ion-page" id="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">cart</ion-title>
+      <ion-row class="ion-justify-content-center">
+        <ion-img class="logo" src="../../assets/images/logo.png" alt="Tech and fast logotype"></ion-img>
+      </ion-row>
+      <ion-grid>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="6">
+            <ion-buttons>
+              <ion-menu-button style="color: white;"></ion-menu-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col size="6" routerLink="/cart">
+            <ion-row class="ion-text-end">
+              <ion-col size="9" class="ion-text-end">
+                <ion-row style="display: block; text-align: right;" class="ion-text-end">
+                  <p style="margin: 0;">{{ totalPrice }}€</p>
+                </ion-row>
+                <ion-row style="display: block; text-align: right;">
+                  <p style="margin: 0; font-size: 10px;">{{ productCount }} item - View cart</p>
+                </ion-row>
+              </ion-col >
+              <ion-col size="3"> 
+                <ion-icon size="large" name="cart-outline"></ion-icon>
+                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">{{ productCount }}</ion-badge>
+              </ion-col>              
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="background-image: url('../../assets/images/banner.png');">
+             <p class="ion-text-center" style="color: black;">Cart</p> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-toolbar>
   </ion-header>
+  <ion-grid>
+    <ion-row style="background-color: #202426; margin-bottom: 5%;">
+      <ion-col size="2">
+      </ion-col>
+      <ion-col size="10">
+        <ion-row>
+         <ion-col size="3">
+          <p style="font-size: 13px;">Product</p>
+         </ion-col>
+         <ion-col size="2.5">
+          <p style="font-size: 13px;">Price</p>
+         </ion-col>
+         <ion-col size="3">
+          <p style="font-size: 13px;">Quantity</p>
+         </ion-col>
+         <ion-col size="2">
+          <p style="font-size: 13px;">Total</p>
+         </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of cartItems" style="border-radius: 30px; background-color: #202426; margin-bottom: 5%;">
+      <ion-col size="2">
+        <ion-img  src="../../assets/images/pizzaCart.png" alt="Tech and fast logotype"></ion-img>
+      </ion-col>
+      <ion-col size="10">
+        <ion-row>
+          <ion-col size="3">
+            <ion-row>
+              <p><ion-text class="ion-text-start" style="font-size: 13px; font-weight: bold;">{{ item.product.name }}</ion-text></p>
+              <p><ion-text class="ion-text-start" style="font-size: 13px;">sandes</ion-text></p>
+            </ion-row>
+          </ion-col>          
+          <ion-col size="2.5">
+            <p>{{ item.product.price }}€</p>
+          </ion-col>
+          <ion-col size="3">
+            <ion-row>
+            <ion-button (click)="descrementQuantity(item.product.id)" style="--background: #383C3E;; --padding-start: 0.6em; --padding-end: 0.6em;">-</ion-button>
+            <p style="font-size: 13px;">{{ item.quantity }}</p>
+            <ion-button (click)="incrementQuantity(item.product.id)" style="--background: #383C3E; --padding-start: 0.5em; --padding-end: 0.5em;">+</ion-button>
+            </ion-row>
+            </ion-col>
+          <ion-col size="2.5">
+            <p>{{ item.quantity * item.product.price }}€</p>
+          </ion-col>
+          <ion-col size="1" (click)="removeProduct(item.product.id)">
+            <div class="d-flex align-items-center justify-content-center">
+              <ion-button color="danger" style="--padding-start: 0; --padding-end: 0;"><ion-icon name="trash-outline"></ion-icon></ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

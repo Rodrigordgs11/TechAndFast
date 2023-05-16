@@ -1,0 +1,114 @@
+<ion-menu contentId="main-content">
+  <ion-content class="background-menu ion-padding ion-text-center">
+    <h3 routerLink="/register">HOME</h3>
+    <h3 routerLink="/login">MENU</h3>
+    <h3 routerLink="/reset-password">PROMOTIONS</h3>
+    <h3>ABOUT</h3>
+    <h3>CONTACT</h3>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-row class="ion-justify-content-center">
+        <ion-img class="logo" src="../../assets/images/logo.png" alt="Tech and fast logotype"></ion-img>
+      </ion-row>
+      <ion-grid>
+        <ion-row class="ion-justify-content-between">
+          <ion-col size="6">
+            <ion-buttons>
+              <ion-menu-button style="color: white;"></ion-menu-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row class="ion-text-end">
+              <ion-col size="9" class="ion-text-end">
+                <ion-row style="display: block; text-align: right;" class="ion-text-end">
+                  <p style="margin: 0;">10.00€</p>
+                </ion-row>
+                <ion-row style="display: block; text-align: right;">
+                  <p style="margin: 0; font-size: 10px;">2 item - View cart</p>
+                </ion-row>
+              </ion-col >
+              <ion-col size="3"> 
+                <ion-icon size="large" name="cart-outline"></ion-icon>
+                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">5</ion-badge>
+              </ion-col>              
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="background-image: url('../../assets/images/banner.png');">
+             <p class="ion-text-center">Client Area</p> 
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-accordion-group expand="inset" [value]="['Dashboard']">
+        <ion-accordion value="Dashboard">
+          <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
+            <ion-label style="margin-left: 35px;" class="ion-text-center">Dashboard</ion-label>
+          </ion-item>
+          <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
+            <ion-row>
+              <ion-col size="12">
+                <p>Hello Guest what are you going to eat today?</p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="order">
+          <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
+            <ion-label style="margin-left: 35px;" class="ion-text-center">Orders</ion-label>
+          </ion-item>
+          <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
+            <ion-row>
+              <ion-col size="12">
+                <p style="font-size: 13.5px;">Nª order 1 25/03/2023 11:11:11 10.00€ <u>show more</u></p>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="adresses">
+          <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
+            <ion-label style="margin-left: 35px;" class="ion-text-center">Adresses</ion-label>
+          </ion-item>
+          <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
+            <ion-row>
+              <ion-col size="12">
+                <p style="font-size: 13.5px;">The following adresses will be used on the checkout page by default.</p>              
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-accordion>    
+        <ion-accordion value="account-details">
+          <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
+            <ion-label style="margin-left: 35px;" class="ion-text-center">Account details</ion-label>
+          </ion-item>
+          <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
+            <form action="">
+              <ion-input style="margin-bottom: 10px;" class="inputs-form" type="text" label="Username" label-placement="floating" fill="solid"></ion-input>
+              <ion-input style="margin-bottom: 10px;" class="inputs-form" type="Password" fill="solid" label="Password" labelPlacement="floating"></ion-input> 
+              <label style="font-weight: bold; margin-top: 20px; margin-bottom: 20px; font-size: 17px; margin-left: 10px;" class="label" for="password-change">Password change</label>
+              <ion-input style="margin-bottom: 10px;" class="inputs-form" type="text" label="Current Password" label-placement="floating" fill="solid"></ion-input>
+              <ion-input style="margin-bottom: 10px;" class="inputs-form" type="Password" fill="solid" label="New Password" labelPlacement="floating"></ion-input>
+              <ion-input style="margin-bottom: 10px;" class="inputs-form" type="Password" fill="solid" label="Confirm New Password" labelPlacement="floating"></ion-input>        
+              <ion-grid>
+              </ion-grid>
+              <ion-row  class="ion-justify-content-end">
+                <ion-button style="--background: #F2C35B; width: 150px; height: 35px; --color: #121618" class="">Save changes</ion-button>
+              </ion-row>
+            </form>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="logout">
+          <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
+            <ion-label style="margin-left: 35px;" class="ion-text-center">Logout</ion-label>
+          </ion-item>
+          <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px);" class="ion-padding" slot="content">
+            Logout
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-toolbar>
+  </ion-header>

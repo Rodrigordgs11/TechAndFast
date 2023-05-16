@@ -1,7 +1,7 @@
 <ion-menu contentId="main-content">
   <ion-content class="background-menu ion-padding ion-text-center">
     <h3 routerLink="/register">HOME</h3>
-    <h3 routerLink="/login">MENU</h3>
+    <h3 routerLink="/menu">MENU</h3>
     <h3 routerLink="/reset-password">PROMOTIONS</h3>
     <h3>ABOUT</h3>
     <h3>CONTACT</h3>
@@ -21,25 +21,25 @@
               <ion-menu-button style="color: white;"></ion-menu-button>
             </ion-buttons>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="6" routerLink="/cart">
             <ion-row class="ion-text-end">
               <ion-col size="9" class="ion-text-end">
                 <ion-row style="display: block; text-align: right;" class="ion-text-end">
-                  <p style="margin: 0;">10.00€</p>
+                  <p style="margin: 0;">{{ totalPrice }}€</p>
                 </ion-row>
                 <ion-row style="display: block; text-align: right;">
-                  <p style="margin: 0; font-size: 10px;">2 item - View cart</p>
+                  <p style="margin: 0; font-size: 10px;">{{ productCount }} item - View cart</p>
                 </ion-row>
               </ion-col >
               <ion-col size="3"> 
                 <ion-icon size="large" name="cart-outline"></ion-icon>
-                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">5</ion-badge>
+                <ion-badge style="display: block; position: absolute; top: 0; left: 21px;" color="primary-color" class="primary-color">{{ productCount }}</ion-badge>
               </ion-col>              
             </ion-row>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col style="background-image: url('../../assets/images/banner.png');">
+          <ion-col style="background-image: url('../../assets/images/banner.png'); margin-bottom: 2%;">
              <p class="ion-text-center" style="color: black;">Product Detail</p> 
           </ion-col>
         </ion-row>
@@ -48,7 +48,7 @@
   </ion-header>
   <ion-row style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
     <ion-col size="6">
-      <ion-img src="../../assets/images/pizzaProductDetail.png" alt=""></ion-img>
+      <ion-img src="data:image/png;base64,{{ product.image }}" alt=""></ion-img>
       <ion-row style="margin-top: 10px;">
         <ion-col size="4">
           <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
@@ -66,10 +66,10 @@
         <h3 style="margin-left: 2%; font-size: 20px; font-weight: regular;">{{ product.name }}</h3>
         <p style="font-weight: bold; font-size: 17px; color: #F2C35B; margin-left: 2%;"> {{ product.price }} €</p>
         <ion-row>
-          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 15px;" shape="round">-</ion-button>
-          <p style="font-size: 20px; margin-top: 10px; margin-left: 2%; margin-right: 2%;">1</p>
-          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 10px;" shape="round">+</ion-button>
-          <ion-button style="font-size: 11px; width: 55%; color: black;">Add cart ></ion-button>
+          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 15px;" shape="round"  (click)="descrementQuantity()">-</ion-button>
+          <p style="font-size: 20px; margin-top: 10px; margin-left: 2%; margin-right: 2%;">{{ quantity }}</p>
+          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 10px;" shape="round" (click)="incrementQuantity()">+</ion-button>
+          <ion-button style="font-size: 11px; width: 55%; color: black;" (click)="addProductToCart()" routerLink="/menu">Add cart ></ion-button>
         </ion-row>
       </div>
     </ion-col>

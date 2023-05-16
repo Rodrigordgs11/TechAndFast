@@ -11,8 +11,13 @@ export class CartService {
   productCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalPriceSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  removeFromCart(index: number): void {
-    this.cartItems.splice(index, 1);
+  findProductIndexById(productId: number): number {
+    const index = this.cartItems.findIndex(item => item.product.id === productId);
+    return index;
+  }
+  
+  removeFromCart(productId: number): void {
+    this.cartItems.splice(this.findProductIndexById(productId), 1);
     this.updateProductCount();
     this.updateTotalPrice();
   }

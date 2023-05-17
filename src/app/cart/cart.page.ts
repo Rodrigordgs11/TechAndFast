@@ -36,6 +36,7 @@ export class CartPage implements OnInit {
     const index = this.cartItems.findIndex(item => item.product.id === id);
     if(this.cartItems[index].quantity > 0){
       this.cartItems[index].quantity++;
+      this.cartService.updateTotalPrice();
     }
   }
 
@@ -43,6 +44,7 @@ export class CartPage implements OnInit {
     const index = this.cartItems.findIndex(item => item.product.id === id);
     if(this.cartItems[index].quantity > 1){
       this.cartItems[index].quantity--;
+      this.cartService.updateTotalPrice();
     }
   }
 }

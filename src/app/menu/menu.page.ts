@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AuthServiceService } from '../services/auth.service';
-import { CartService } from '../services/cart.service';
 
 register();
 
@@ -20,12 +19,10 @@ export class MenuPage implements OnInit {
   public Categories: Category[];
   public Products: Product[];
   subscription !: Subscription;
-  productCount: number = 0;
-  totalPrice: number = 0;
 
   selectedCategoryId: any;
 
-  constructor(private http: HttpConnectionService, public router: Router, public authService: AuthServiceService, private cartService: CartService) { 
+  constructor(private http: HttpConnectionService, public router: Router, public authService: AuthServiceService) { 
     this.Categories = [];
     this.Products = [];
   }
@@ -54,14 +51,6 @@ export class MenuPage implements OnInit {
         this.Products = res;
       }
     })
-
-    this.cartService.getProductCount().subscribe(count => {
-      this.productCount = count;
-    });
-
-    this.cartService.getTotalPrice().subscribe(price => {
-      this.totalPrice = price;
-    });
   }
 
   onCategoryClick(categoryId: any) {

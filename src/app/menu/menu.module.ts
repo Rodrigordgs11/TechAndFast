@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPageRoutingModule } from './menu-routing.module';
+import { HeaderComponent } from '../components/header/header.component'
 
 import { MenuPage } from './menu.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -14,9 +15,10 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuPageRoutingModule  
+    MenuPageRoutingModule
   ],
-  declarations: [MenuPage],
+  declarations: [MenuPage,    HeaderComponent
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MenuPageModule {}

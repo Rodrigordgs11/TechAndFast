@@ -21,4 +21,14 @@ export class HttpConnectionService {
     console.log(httpOptions);
     return this.http.get<T>(`${this.endPoint}/${url}`, httpOptions);
   }
+
+  post<T>(url: string, data: any): Observable<T> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+      })
+    };
+  
+    return this.http.post<T>(`${this.endPoint}/${url}`, data, httpOptions);
+  }
 }

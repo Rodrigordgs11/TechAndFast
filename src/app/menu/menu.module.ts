@@ -5,19 +5,23 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPageRoutingModule } from './menu-routing.module';
-import { HeaderComponent } from '../components/header/header.component'
 
 import { MenuPage } from './menu.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HomePageModule } from '../home/home.module';
+import { HeaderModule } from '../components/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MenuPageRoutingModule
+    MenuPageRoutingModule,
+    HomePageModule,
+    HeaderModule
   ],
-  declarations: [MenuPage,    HeaderComponent
+  declarations: [
+    MenuPage
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

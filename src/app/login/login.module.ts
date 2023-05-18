@@ -11,6 +11,7 @@ import { LoginPage } from './login.page';
 import { AuthServiceService } from '../services/auth.service';
 
 import { User } from '../models/user';
+import { HeaderModule } from '../components/header/header.module';
 
 @NgModule({
   imports: [
@@ -18,9 +19,12 @@ import { User } from '../models/user';
     FormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HeaderModule
   ],
-  declarations: [LoginPage],
+  declarations: [
+    LoginPage
+  ],
   providers:[User]
 })
 export class LoginPageModule {}

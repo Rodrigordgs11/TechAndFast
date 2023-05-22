@@ -1,10 +1,8 @@
-import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
-import { User } from '../models/user';
-import { Observable, map, interval } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-
+import { HttpConnectionService } from '../services/http-connection.service'
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +13,7 @@ export class AuthServiceService{
   headers = new HttpHeaders().set('Content-Type', 'application/json')
   currentUser = {}
 
-  constructor(private http: HttpClient, public router: Router, public alertController: AlertController) {}
+  constructor(private http: HttpClient, public router: Router, public alertController: AlertController, private httpConnection:HttpConnectionService) {}
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -38,36 +36,26 @@ export class AuthServiceService{
         localStorage.setItem('access_token', res.access_token);
         console.log(localStorage.getItem('access_token'))
         this.router.navigate(['/menu']);
-        //this.getUserProfile(res._id).subscribe((res) => {
-        //this.currentUser = res;
-        //});
-    }, (error: any) => {
-      if(error.status === 401) {
-        this.presentAlert();
-      }
-    });
+        // Remover o código relacionado à definição e remoção da flag 'token_just_obtained'
+      }, (error: any) => {
+        if(error.status === 401) {
+          this.presentAlert();
+        }
+      });
   }
 
   getToken() {
     return localStorage.getItem('access_token');
   }
 
+
   refresh() { 
     if(localStorage.getItem('access_token') !== null) {
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Authorization': 'Bearer ' + localStorage.getItem('access_token')
-        })
-      };
-      
-      this.http.post<any>(this.endPoint + '/refresh-token', null, httpOptions)
+      this.httpConnection.post('auth/refresh-token', null)
         .subscribe((res: any) => {
-          localStorage.setItem('access_token', res.access_token)
+          localStorage.setItem('access_token', res.access_token);
           console.log(localStorage.getItem('access_token'));
-        }, (error: any) => {
-          console.error(error);
         });
     }
-  }
-  
+  }  
 }

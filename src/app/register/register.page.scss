@@ -133,3 +133,16 @@ ion-radio.radio-checked::part(mark) {
  .ion-activatable {
   background-color: #fff0 !important;
  }
+
+ ion-modal {
+  &.center {
+    --width: calc(100% - 2em);
+    align-items: center;
+    --height: auto;
+    .ion-page {
+      position: relative;
+      display: block;
+      contain: content;
+    }
+  }
+}

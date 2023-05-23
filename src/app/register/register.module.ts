@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { RegisterPageRoutingModule } from './register-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterPage } from './register.page';
 import { HeaderModule } from '../components/header/header.module';
@@ -15,10 +16,11 @@ import { HeaderModule } from '../components/header/header.module';
     FormsModule,
     IonicModule,
     RegisterPageRoutingModule,
+    ReactiveFormsModule,
     HeaderModule
   ],
   declarations: [
     RegisterPage
-    ]
+  ]
 })
 export class RegisterPageModule {}

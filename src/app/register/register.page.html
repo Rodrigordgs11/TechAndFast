@@ -1,7 +1,7 @@
 <ion-menu contentId="main-content">
   <ion-content class="background-menu ion-padding ion-text-center">
     <h3 routerLink="/register">HOME</h3>
-    <h3 routerLink="/login">MENU</h3>
+    <h3 routerLink="/menu">MENU</h3>
     <h3 routerLink="/reset-password">PROMOTIONS</h3>
     <h3>ABOUT</h3>
     <h3>CONTACT</h3>
@@ -15,52 +15,161 @@
     <ion-img src="../../assets/images/backgroundRegister.png" class="imagem-fundo" alt=""></ion-img>
     </ion-col>  
     <ion-col class="container-frente">
-      <form action="">
+      <form [formGroup]="loginForm" (Ngsubmit)="submit()" #formDir="ngForm">
         <h3 class="ion-text-center">Register</h3>
-        <ion-input class="inputs-form" type="text" label="Full Name" label-placement="floating" fill="solid"></ion-input>
-        <ion-input class="inputs-form" type="email" fill="solid" label="Email" labelPlacement="floating"></ion-input>
-        <ion-input class="inputs-form" type="Password" fill="solid" label="Password" labelPlacement="floating"></ion-input>
-        <ion-input class="inputs-form" type="Password" fill="solid" label="Confirm Password" labelPlacement="floating"></ion-input>
-        <br>
-        <ion-label style="color: #F2C35B; margin-left: 10px;">Data nascimento</ion-label>
-        <ion-datetime-button  color="warning" style="margin-top: 15px; border-bottom: 2px solid white; margin-right: 10px; justify-content: left; margin-left: 10px;" datetime="date"></ion-datetime-button>
-
-        <ion-modal [keepContentsMounted]="true">
-          <ng-template>
-            <ion-datetime [showDefaultButtons]="true" presentation="date" id="date"></ion-datetime>
-          </ng-template>
-        </ion-modal>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="6">
-              <ion-select class="selector-form" interface="popover" placeholder="Gender">
-                <ion-select-option value="Male">Male</ion-select-option>
-                <ion-select-option value="Female">Female</ion-select-option>
-              </ion-select>
-            </ion-col>
-            <ion-col size="6">
-                <ion-select class="selector-form" interface="popover" placeholder="Country">
-                <ion-select-option value="Portugal">Portugal</ion-select-option>
-                <ion-select-option value="Spain">Spain</ion-select-option>
-              </ion-select>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="1">
-              <ion-radio-group value="custom-checked">
-                <ion-radio value="custom" aria-label="Custom checkbox"></ion-radio>
-              </ion-radio-group>
-            </ion-col>
-            <ion-col size="11">
-              Accept terms and conditions
-            </ion-col> 
-          </ion-row>
-        </ion-grid>
-        <ion-row class="ion-justify-content-center">
-          <ion-button style="--background: #F2C35B; width: 200px; height: 35px;" class="">Register</ion-button>
+        <ion-input 
+          style="margin-bottom: 20px; --background: transparent;" 
+          class="inputs-form" 
+          type="text" 
+          label="Name" 
+          label-placement="floating" 
+          formControlName="name" 
+          fill="solid" 
+          required>
+        </ion-input>
+        <div *ngIf="name.invalid && formDir.submitted" style="padding-top: var(--ion-padding, 0px);">
+          <p *ngIf="name.errors?.['required']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name cannot be empty</ion-text></p>
+          <p *ngIf="name.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name must be at least 2 characters long.</ion-text></p>
+        </div>
+        <ion-input 
+          style="margin-bottom: 20px; --background: transparent;" 
+          class="inputs-form" 
+          type="text" 
+          fill="solid" 
+          label="Username" 
+          labelPlacement="floating" 
+          formControlName="username" 
+          required>
+        </ion-input>  
+        <div *ngIf="username.invalid && formDir.submitted">
+          <p *ngIf="username.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Email cannot be empty</ion-text></p>
+        </div>  
+        <ion-input 
+          style="margin-bottom: 20px; --background: transparent;" 
+          class="inputs-form" 
+          type="text" 
+          fill="solid" 
+          label="Email" 
+          labelPlacement="floating" 
+          formControlName="email" 
+          required>
+      </ion-input>  
+      <div *ngIf="email.invalid && formDir.submitted">
+        <p *ngIf="email.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Phone cannot be empty</ion-text></p>
+        <p *ngIf="email.errors?.['email']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Email format invalid</ion-text></p>
+      </div> 
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="Phone" 
+        labelPlacement="floating" 
+        formControlName="phone" 
+        required>
+      </ion-input>  
+      <div *ngIf="phone.invalid && formDir.submitted">
+        <p *ngIf="phone.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Address cannot be empty</ion-text></p>
+        <p *ngIf="phone.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Phone must be at least 9 characters long.</ion-text></p>
+      </div> 
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="Address" 
+        labelPlacement="floating" 
+        formControlName="address" 
+        required>
+      </ion-input>  
+      <div *ngIf="address.invalid && formDir.submitted">
+        <p *ngIf="address.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Username cannot be empty</ion-text></p>
+      </div> 
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="Password" 
+        labelPlacement="floating" 
+        formControlName="password" 
+        required>
+      </ion-input>  
+      <div *ngIf="password.invalid && formDir.submitted">
+        <p *ngIf="password.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Password cannot be empty</ion-text></p>
+      </div> 
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="Confirm Password" 
+        labelPlacement="floating" 
+        formControlName="confirmPassword" 
+        required>
+      </ion-input>  
+      <div *ngIf="confirmPassword.invalid && formDir.submitted">
+        <p *ngIf="confirmPassword.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Confirm password cannot be empty</ion-text></p>
+      </div>
+      <div *ngIf="formDir.submitted">
+        <p *ngIf="password !== confirmPassword"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Passwords dont match</ion-text></p>
+      </div>
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="Fiscal Number" 
+        labelPlacement="floating" 
+        formControlName="fiscalNumber" 
+        required>
+      </ion-input>  
+      <div *ngIf="fiscalNumber.invalid && formDir.submitted">
+        <p *ngIf="fiscalNumber.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Fiscal number cannot be empty</ion-text></p>
+        <p *ngIf="fiscalNumber.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name must be at least 10 characters long.</ion-text></p>
+      </div>
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="City" 
+        labelPlacement="floating" 
+        formControlName="city" 
+        required>
+      </ion-input>  
+      <div *ngIf="city.invalid && formDir.submitted">
+        <p *ngIf="city.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">City cannot be empty</ion-text></p>
+      </div>
+      <ion-input 
+        style="margin-bottom: 20px; --background: transparent;" 
+        class="inputs-form" 
+        type="text" 
+        fill="solid" 
+        label="ZipCode" 
+        labelPlacement="floating" 
+        formControlName="zipCode" 
+        required>
+      </ion-input>  
+      <div *ngIf="zipCode.invalid && formDir.submitted">
+        <p *ngIf="zipCode.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">ZipCode cannot be empty</ion-text></p>
+        <p *ngIf="zipCode.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name must be at least 10 characters long.</ion-text></p>
+      </div>
+      <ion-grid>
+        <ion-row style="margin-bottom: 20px;">
+          <ion-col size="1">
+            <ion-radio-group value="custom-checked">
+              <ion-radio value="custom" aria-label="Custom checkbox"></ion-radio>
+            </ion-radio-group>
+          </ion-col>
+          <ion-col size="11">
+            Remember Password
+          </ion-col> 
         </ion-row>
+      </ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button type="submit" style="--background: #F2C35B; width: 200px; height: 35px;" class="" (click)="submit()">Login</ion-button>
+        </ion-row>  
       </form>
     </ion-col>  
   </ion-row>  

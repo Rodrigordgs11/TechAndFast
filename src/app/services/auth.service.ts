@@ -26,6 +26,16 @@ export class AuthServiceService{
     await alert.present();
   }
 
+  register(name: string, username: string, email: string, phone: number, fiscalNumber: number, password: any, address: any, city: string, zipCode: any){
+    const userObj = {name, username, email, phone, fiscalNumber, password, address, city, zipCode};
+    console.log(userObj);
+    console.log(this.endPoint + '/register');
+    return this.http.post<any>(this.endPoint + '/register', userObj)
+      .subscribe(() => {
+        this.router.navigate(['/login']);
+      })
+  }
+
   signIn(username: any, password: any) {
     const userObj = { username, password };
     console.log(userObj);
@@ -36,7 +46,7 @@ export class AuthServiceService{
         localStorage.setItem('access_token', res.access_token);
         console.log(localStorage.getItem('access_token'))
         this.router.navigate(['/menu']);
-        // Remover o código relacionado à definição e remoção da flag 'token_just_obtained'
+        // guardar informções do user
       }, (error: any) => {
         if(error.status === 401) {
           this.presentAlert();
@@ -47,8 +57,7 @@ export class AuthServiceService{
   getToken() {
     return localStorage.getItem('access_token');
   }
-
-
+  
   refresh() { 
     if(localStorage.getItem('access_token') !== null) {
       this.httpConnection.post('auth/refresh-token', null)

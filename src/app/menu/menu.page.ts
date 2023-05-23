@@ -28,11 +28,11 @@ export class MenuPage implements OnInit {
   }
 
   ngOnInit() {
-    if(localStorage.getItem('access_token') !== null) {
-      this.subscription = timer(0, 10000).pipe(
+    if (localStorage.getItem('access_token') !== null) {
+      this.subscription = timer(10000, 50000).pipe( 
         switchMap(async () => this.authService.refresh())
       ).subscribe();
-    }
+    }  
     
     this.http.get<any>('categories').subscribe(res => {
       if(res != null) {
@@ -54,6 +54,25 @@ export class MenuPage implements OnInit {
   }
 
   onCategoryClick(categoryId: any) {
+    if (categoryId == 4) {
+      this.http.get<any>('packs/category/' + categoryId).subscribe(res => {
+        console.log(res);
+        if (res != null) {
+          this.Products = res;
+          this.selectedCategoryId = categoryId;
+    
+          this.Products.forEach(product => {
+            product.isPack = true;
+          });
+        }
+      },
+      (error: any) => {
+        if (error.status === 401) {
+          this.router.navigate(['/login']);
+        }
+      });
+    }
+    
     this.http.get<any>('products/category/'+ categoryId).subscribe(res => {
       console.log(res)
       if(res != null) {
@@ -68,7 +87,11 @@ export class MenuPage implements OnInit {
     })
   }
 
-  onProductClick(productId: number) {
-    this.router.navigate(['/product-detail', productId]);
-  } 
+  onProductClick(productId: number, isPack: boolean) {
+    if(isPack == true) {
+      this.router.navigate(['/pack-detail', productId]);
+    } else{
+      this.router.navigate(['/product-detail', productId]);
+    }
+  }
 }

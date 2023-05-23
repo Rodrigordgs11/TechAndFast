@@ -11,5 +11,150 @@
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
   <app-header></app-header>
-  
+  <ion-accordion-group [value]="['shippingDetails']">
+    <ion-accordion value="shippingDetails">
+      <ion-item slot="header" style="--border-color: #fff solid 2px;">
+        <ion-row style="margin-bottom: 5%;">
+          <ion-col size="12">
+            <ion-label style="font-size: 11px;">01</ion-label>
+          </ion-col>
+          <ion-label>Shipping Details</ion-label>
+        </ion-row>
+      </ion-item>
+      <div class="ion-padding background-child-item" slot="content">
+        <p>Os seus endereços</p>
+        <ion-radio value="CreditCard" style="padding-left: 3%;" labelPlacement="end">
+          Rodrigo Rodrigues 
+          <br>
+          Rua de santiago, 575, 
+          <br>
+          barcelos, 4905-021, Portugal
+          <br>  
+          Número de telefone: +351 96668219  
+        </ion-radio>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="paymentMethods">
+      <ion-item slot="header" style="--border-color: #fff solid 2px;">
+        <ion-row style="margin-bottom: 5%;">
+          <ion-col size="12">
+            <ion-label style="font-size: 11px;">02</ion-label>
+          </ion-col>
+          <ion-label>Payment Methods</ion-label>
+        </ion-row>
+      </ion-item>
+      <div class="ion-padding background-child-item" slot="content">
+        <p style="font-weight: bold;">Your credit and debit cards</p>
+        <ion-radio-group [(ngModel)]="selectedOption">
+          <ion-radio value="CreditCard" style="padding-left: 3%;" labelPlacement="end">Payment by credit or debit card</ion-radio>
+          <ion-row *ngIf="selectedOption === 'CreditCard'" style="padding-left: 3%;">
+            <ion-col>
+              <ion-input placeholder="Name of card holder"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input placeholder="Card name"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="selectedOption === 'CreditCard'" style="padding-left: 3%;">
+            <ion-col>
+              <ion-input placeholder="Expiration date"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input placeholder="Security code"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-radio value="CASH" style="padding-left: 3%;" labelPlacement="end">Cash payment</ion-radio>
+        </ion-radio-group>     
+      </div>  
+    </ion-accordion>
+    <ion-accordion value="productsShipping">
+      <ion-item slot="header" style="--border-color: #fff solid 2px;">
+        <ion-row style="margin-bottom: 5%;">
+          <ion-col size="12">
+            <ion-label style="font-size: 11px;">03</ion-label>
+          </ion-col>
+          <ion-label>Products and shipping</ion-label>
+        </ion-row>
+      </ion-item>
+      <div class="ion-padding background-child-item" slot="content">
+        <p style="font-weight: bold;">Yours products</p>
+        <ion-grid>
+          <ion-row style="background-color: #202426; margin-bottom: 5%;">
+            <ion-col size="2">
+            </ion-col>
+            <ion-col size="10">
+              <ion-row>
+               <ion-col size="3">
+                <p style="font-size: 13px;">Product</p>
+               </ion-col>
+               <ion-col size="2.5">
+                <p style="font-size: 13px;">Price</p>
+               </ion-col>
+               <ion-col size="3">
+                <p style="font-size: 13px;">Quantity</p>
+               </ion-col>
+               <ion-col size="2">
+                <p style="font-size: 13px;">Total</p>
+               </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let item of cartItems" style="border-radius: 30px; background-color: #202426; margin-bottom: 5%;">
+            <ion-col size="2">
+              <ion-img  src="../../assets/images/pizzaCart.png" alt="Tech and fast logotype"></ion-img>
+            </ion-col>
+            <ion-col size="10">
+              <ion-row>
+                <ion-col size="3">
+                  <ion-row>
+                    <p><ion-text class="ion-text-start" style="font-size: 13px; font-weight: bold;">{{ item.product.name }}</ion-text></p>
+                    <p><ion-text class="ion-text-start" style="font-size: 13px;">sandes</ion-text></p>
+                  </ion-row>
+                </ion-col>          
+                <ion-col size="2.5">
+                  <p>{{ item.product.price }}€</p>
+                </ion-col>
+                <ion-col size="3">
+                  <ion-row>
+                  <p style="font-size: 13px;">{{ item.quantity }}</p>
+                  </ion-row>
+                </ion-col>
+                <ion-col size="2.5">
+                  <p>{{ item.quantity * item.product.price }}€</p>
+                </ion-col>
+                <ion-col size="1">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <ion-button color="danger" style="--padding-start: 0; --padding-end: 0;"><ion-icon name="trash-outline"></ion-icon></ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-button style="--background: #F2C35B;" id="open-custom-dialog" expand="block" (click)="postOrder()">
+              Save
+            </ion-button>    
+            <app-payment-success-modal></app-payment-success-modal>           
+          </ion-row>       
+        </ion-grid>
+      </div>
+    </ion-accordion>
+    <ion-accordion></ion-accordion>
+    <ion-row style="border: 2px #fff solid; border-radius: 10px; margin: 10% 2% 2% 2%;">
+      <ion-col style="margin-left: 5%; margin-top: 5%;">
+        <ion-row style="font-weight: bold; margin-bottom: 5%;">
+          Order Details
+        </ion-row>
+        <ion-row style="margin-bottom: 5%;">
+          Products: {{ productCount }}
+        </ion-row>
+        <ion-row style="margin-bottom: 5%;">
+          Delivery: {{ deleveryPrice}} €
+        </ion-row>
+        <ion-row style="margin-bottom: 5%;">
+          Total: {{ totalPrice }} €
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-accordion-group>
 </ion-content>

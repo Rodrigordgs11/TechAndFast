@@ -8,6 +8,8 @@ import { CheckoutPageRoutingModule } from './checkout-routing.module';
 
 import { CheckoutPage } from './checkout.page';
 import { HeaderModule } from '../components/header/header.module'
+import { PaymentSuccessModalModule } from '../components/payment-success-modal/payment-success-modal.module'
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { HeaderModule } from '../components/header/header.module'
     FormsModule,
     IonicModule,
     CheckoutPageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    PaymentSuccessModalModule
   ],
   declarations: [CheckoutPage]
 })

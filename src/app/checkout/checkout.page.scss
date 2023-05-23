@@ -1,0 +1,63 @@
+ion-content, ion-list, ion-toolbar, ion-item, .background-child-item {
+    --background: var(--ion-color-primary-background-color);
+    background-color: #121618;
+}
+
+.background-menu{
+    --background: var(--ion-color-primary-color);
+}
+
+p, ion-checkbox{
+    margin-block-start: 0em;
+    margin-inline-start: 3%;
+}
+
+ion-row {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+ion-input{
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid white;
+    outline: 0;
+    font-size: 13px;
+    color: white;
+    background: transparent;
+    transition: border-color 0.2s;
+    --highlight-color: var(--ion-color-primary-color);
+}
+
+ion-radio::part(container) {
+    width: 25px;
+    height: 25px;
+  
+    border-radius: 20px;
+    border: 2px solid #ddd;
+}
+  
+ion-radio::part(mark) {
+    background: none;
+    transition: none;
+    transform: none;
+    border-radius: 0;
+}
+  
+ion-radio.radio-checked::part(container) {
+    background: #F2C35B;
+    border-color: transparent;
+}
+  
+ion-radio.radio-checked::part(mark) {
+    width: 6px;
+    height: 10px;
+
+    border-width: 0px 2px 2px 0px;
+    border-style: solid;
+    border-color: #fff;
+
+    transform: rotate(45deg);
+}
+

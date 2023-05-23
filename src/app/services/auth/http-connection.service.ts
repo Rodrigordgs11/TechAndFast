@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpConnectionService {
-
   
   private readonly endPoint = 'http://185.113.143.51:8081/api/v1';
 
@@ -28,7 +27,6 @@ export class HttpConnectionService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-  
     return this.http.post<T>(`${this.endPoint}/${url}`, data, httpOptions);
   }
 }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { HttpConnectionService } from '../services/http-connection.service'
+import { HttpConnectionService } from '../auth/http-connection.service'
 @Injectable({
   providedIn: 'root'
 })

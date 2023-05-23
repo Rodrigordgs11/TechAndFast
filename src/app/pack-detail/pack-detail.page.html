@@ -1,0 +1,79 @@
+<ion-menu contentId="main-content">
+  <ion-content class="background-menu ion-padding ion-text-center">
+    <h3 routerLink="/register">HOME</h3>
+    <h3 routerLink="/menu">MENU</h3>
+    <h3 routerLink="/reset-password">PROMOTIONS</h3>
+    <h3>ABOUT</h3>
+    <h3>CONTACT</h3>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="ion-page" id="main-content">
+  <app-header></app-header>
+  <ion-row style="margin: 10px">
+    <ion-col size="6">
+      <ion-img src="../../assets/images/pizzaProduct.png" alt=""></ion-img>
+      <ion-row style="margin-top: 10px;">
+        <ion-col size="4">
+          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+        </ion-col>
+        <ion-col size="4">
+          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+        </ion-col>
+        <ion-col size="4">
+          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="6">
+      <div style="margin-left: 10%;">
+        <h3 style="margin-left: 2%; font-size: 20px; font-weight: regular;">{{ pack.name }}</h3>
+        <p style="font-weight: bold; font-size: 17px; color: #F2C35B; margin-left: 2%;"> {{ pricePack }} €</p>
+        <ion-row>
+          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 15px;" shape="round"  (click)="descrementQuantity()">-</ion-button>
+          <p style="font-size: 20px; margin-top: 10px; margin-left: 2%; margin-right: 2%;">{{ quantity }}</p>
+          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 10px;" shape="round" (click)="incrementQuantity()">+</ion-button>
+          <ion-button style="font-size: 11px; width: 55%; color: black;" (click)="addProductToCart()" routerLink="/menu">Add cart ></ion-button>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-accordion-group [value]="['drinks']">
+    <ion-accordion value="drinks">
+      <ion-item slot="header" style="--border-color: #fff solid 2px;">
+        <ion-row style="margin-bottom: 5%;">
+          <ion-label style="font-size: 20px; font-weight: bold;">Drinks</ion-label>
+        </ion-row>
+      </ion-item>
+      <div class="ion-padding background-child-item" slot="content">
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col>
+            <ion-img src="../../assets/images/cola.png" style="width: 60%; height: 60%;"></ion-img>        
+            <ion-button class="productButton" [ngClass]="{'selected': isColaSelected}" (click)="colaSelect()">Select</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-img src="../../assets/images/fanta.png" style="width: 60%; height: 60%;"></ion-img>        
+            <ion-button class="productButton" [ngClass]="{'selected': isFantaSelected}" (click)="fantaSelect()">Select</ion-button>
+          </ion-col>                            
+        </ion-row>        
+      </div>
+    </ion-accordion>
+    <ion-accordion value="Food">
+      <ion-item slot="header" style="--border-color: #fff solid 2px;">
+        <ion-row style="margin-bottom: 5%;">
+          <ion-label style="font-size: 20px; font-weight: bold;">Food</ion-label>
+        </ion-row>
+      </ion-item>
+      <div class="ion-padding background-child-item" slot="content">
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+          <ion-col *ngFor="let productPack of produtctsPack">
+            <ion-img src="../../assets/images/cola.png" style="width: 60%; height: 60%;"></ion-img>
+            <p>{{ productPack.name }}</p>     
+            <ion-button class="productButton" [ngClass]="{'selected': selectedProductId === productPack.product}" (click)="onClickProduct(productPack.product)">Select</ion-button>
+          </ion-col>
+        </ion-row>        
+      </div>
+    </ion-accordion>
+    <ion-accordion></ion-accordion>
+  </ion-accordion-group>
+</ion-content>

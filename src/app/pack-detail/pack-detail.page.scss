@@ -1,0 +1,31 @@
+ion-content, ion-list, ion-toolbar, ion-item, .background-child-item {
+    --background: var(--ion-color-primary-background-color);
+    background-color: #121618;
+}
+  
+.background-menu{
+    --background: var(--ion-color-primary-color);
+}
+  
+ion-button {
+  --background: #F2C35B;
+}
+
+.productButton {
+    --background: transparent;
+    border: 2px white solid;
+    border-radius: 10px;
+}
+  
+p, h3{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.background-menu{
+    --background: var(--ion-color-primary-color);
+}
+
+.selected {
+    --background: #F2C35B;
+    border: 0px;
+}

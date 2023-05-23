@@ -55,4 +55,10 @@ export class CartService {
   getTotalPrice(): BehaviorSubject<number> {
     return this.totalPriceSubject;
   }
+
+  clearCart(): void {
+    this.cartItems = []; 
+    this.updateProductCount();
+    this.updateTotalPrice();
+  }
 }

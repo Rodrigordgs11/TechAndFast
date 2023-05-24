@@ -70,16 +70,13 @@ export class ClientAreaPage implements OnInit {
   }
 
   saveToCart() {
-    this.orderLines.forEach(({ product, quantity }) => {
-      this.orderLines.forEach((orderLine) => {
-        this.httpConnection.get('products/' + orderLine.product).subscribe((productResponse) => {
-          const product = productResponse as Product;
-          this.cartService.addToCart(product, quantity);
-        });
+    this.orderLines.forEach((orderLine) => {
+      this.httpConnection.get('products/' + orderLine.product).subscribe((productResponse) => {
+        const product = productResponse as Product;
+        this.cartService.addToCart(product, orderLine.quantity);
       });
     });
-  }  
-  
+  }   
   
   logoutCurrentUser(){
     this.httpConnection.post('auth/logout', null)

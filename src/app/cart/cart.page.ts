@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product';
+import { ActionSheetController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ export class CartPage implements OnInit {
   totalPrice: number = 0;
   cartItems: { product: Product, quantity: number }[] = [];
 
-  constructor(private cartService:CartService) { }
+  constructor(private cartService:CartService, private actionSheetCtrl: ActionSheetController) { }
 
   ngOnInit() {
 
@@ -46,5 +47,31 @@ export class CartPage implements OnInit {
       this.cartItems[index].quantity--;
       this.cartService.updateTotalPrice();
     }
+  }
+
+  async confirmDelete(productId: number){
+    const actionSheetCtrl = await this.actionSheetCtrl.create({
+      header: 'Do you want to delete?',
+      buttons: [
+        {
+          text: 'Delete',
+          role: 'destructive',
+          icon: 'trash',
+          handler: () => {
+            this.cartService.removeFromCart(productId)
+          }  
+        }, {
+          text: 'Cancel',
+          role: 'close',
+          icon: 'close-outline' 
+        } 
+      ],
+      cssClass: '',
+      animated: true,
+      backdropDismiss: true,
+      keyboardClose: true,
+      mode: 'ios'
+    })
+    actionSheetCtrl.present();
   }
 }

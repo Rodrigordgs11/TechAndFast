@@ -85,7 +85,7 @@
           <ion-col size="2.5">
             <p>{{ item.quantity * item.product.price }}€</p>
           </ion-col>
-          <ion-col size="1" (click)="removeProduct(item.product.id)">
+          <ion-col size="1" (click)="confirmDelete(item.product.id)">
             <div class="d-flex align-items-center justify-content-center">
               <ion-button color="danger" style="--padding-start: 0; --padding-end: 0;"><ion-icon name="trash-outline"></ion-icon></ion-button>
             </div>

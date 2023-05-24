@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from '../services/auth/auth.service'
-import { User } from '../models/user';
 import { ScreenOrientation, OrientationLockOptions } from '@capacitor/screen-orientation';
 import { ViewWillEnter } from '@ionic/angular/types/ionic-lifecycle-hooks';
 
@@ -18,7 +17,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
   }
 
   loginForm! : FormGroup
-  constructor(private authService: AuthServiceService, public user:User) {
+  constructor(private authService: AuthServiceService) {
     //this.displayError = this.displayError.bind(this);
    }
 

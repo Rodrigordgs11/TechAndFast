@@ -8,7 +8,6 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-import { User } from '../models/user';
 import { HeaderModule } from '../components/header/header.module';
 import { SideMenuModule } from '../components/side-menu/side-menu.module'
 
@@ -26,6 +25,6 @@ import { SideMenuModule } from '../components/side-menu/side-menu.module'
   declarations: [
     LoginPage
   ],
-  providers:[User]
+  providers:[]
 })
 export class LoginPageModule {}

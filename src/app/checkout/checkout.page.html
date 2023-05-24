@@ -13,15 +13,11 @@
         </ion-row>
       </ion-item>
       <div class="ion-padding background-child-item" slot="content">
-        <p>Os seus endereços</p>
+        <p>Your address</p>
         <ion-radio value="CreditCard" style="padding-left: 3%;" labelPlacement="end">
-          Rodrigo Rodrigues 
-          <br>
-          Rua de santiago, 575, 
-          <br>
-          barcelos, 4905-021, Portugal
-          <br>  
-          Número de telefone: +351 96668219  
+          Address: {{ user.address }}  
+          <br>ZipCode: {{ user.zipCode }} 
+          <br>City: {{ user.city }}
         </ion-radio>
       </div>
     </ion-accordion>

@@ -5,6 +5,9 @@ import { NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { PaymentSuccessModalComponent } from '../components/payment-success-modal/payment-success-modal.component';
 import { HttpConnectionService } from '../services/auth/http-connection.service'
+import { User } from '../models/user';
+import { error } from 'console';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.page.html',
@@ -13,10 +16,11 @@ import { HttpConnectionService } from '../services/auth/http-connection.service'
 export class CheckoutPage implements OnInit {
   productCount: number = 0;
   totalPrice: number = 0;
+  user: User = {} as User;
   cartItems: { product: Product, quantity: number }[] = [];
   selectedOption!: string;
   deleveryPrice = 3.00;
-  constructor(private cartService: CartService, private navCtrl: NavController, private modalCtrl: ModalController, private http: HttpConnectionService, private cart: CartService) { }
+  constructor(private cartService: CartService, private navCtrl: NavController, private router: Router, private http: HttpConnectionService, private cart: CartService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
@@ -27,6 +31,7 @@ export class CheckoutPage implements OnInit {
     this.cartService.getTotalPrice().subscribe(price => {
       this.totalPrice = price;
     });
+    this.getInformationsUserLogged();
   }
 
   postOrder() {
@@ -63,4 +68,14 @@ export class CheckoutPage implements OnInit {
     }, 3000);
   }
 
+  getInformationsUserLogged() {
+    this.http.get('entities/logged').subscribe((response) =>{
+      this.user = response as User;
+    },
+    (error: any) => {
+      if(error.status === 401) {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 }

@@ -7,4 +7,5 @@ export interface Product {
     isActive: boolean;
     category: any;
     tax: any;
+    isPack: boolean;
 }

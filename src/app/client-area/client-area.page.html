@@ -10,7 +10,7 @@
       <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
         <ion-row>
           <ion-col size="12">
-            <p>Hello Guest what are you going to eat today?</p>
+            <p>Hello {{ user.name }} what are you going to eat today?</p>
           </ion-col>
         </ion-row>
       </div>
@@ -30,7 +30,6 @@
             </p>
           </ion-col>
         </ion-row>
-        
         <ion-modal *ngFor="let order of orders" [id]="'example-modal-' + order.id" #modal [trigger]="'open-custom-dialog-' + order.id">
           <ng-template>
             <div class="wrapper">
@@ -61,7 +60,7 @@
                   </ion-row>
                 </ion-col>
               </ion-row>
-              <p>Amount {{ order?.amount }} €</p>
+              <p>Amount: {{ order?.amount }} €</p>
               <ion-row class="ion-justify-content-end">
                 <ion-button (click)="saveToCart()" style="--background: #F2C35B;">
                   Order again
@@ -79,37 +78,14 @@
       <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
         <ion-row>
           <ion-col size="12">
-            <p style="font-size: 13.5px;">The following adresses will be used on the checkout page by default.</p>              
+            <p style="font-size: 13.5px;">{{ user.address }}  {{ user.zipCode }} {{ user.city }}</p>              
           </ion-col>
         </ion-row>
       </div>
     </ion-accordion>    
-    <ion-accordion value="account-details">
-      <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
-        <ion-label style="margin-left: 35px;" class="ion-text-center">Account details</ion-label>
-      </ion-item>
-      <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
-        <form action="">
-          <ion-input style="margin-bottom: 10px;" class="inputs-form" type="text" label="Username" label-placement="floating" fill="solid"></ion-input>
-          <ion-input style="margin-bottom: 10px;" class="inputs-form" type="Password" fill="solid" label="Password" labelPlacement="floating"></ion-input> 
-          <label style="font-weight: bold; margin-top: 20px; margin-bottom: 20px; font-size: 17px; margin-left: 10px;" class="label" for="password-change">Password change</label>
-          <ion-input style="margin-bottom: 10px;" class="inputs-form" type="text" label="Current Password" label-placement="floating" fill="solid"></ion-input>
-          <ion-input style="margin-bottom: 10px;" class="inputs-form" type="Password" fill="solid" label="New Password" labelPlacement="floating"></ion-input>
-          <ion-input style="margin-bottom: 10px;" class="inputs-form" type="Password" fill="solid" label="Confirm New Password" labelPlacement="floating"></ion-input>        
-          <ion-grid>
-          </ion-grid>
-          <ion-row  class="ion-justify-content-end">
-            <ion-button style="--background: #F2C35B; width: 150px; height: 35px; --color: #121618" class="">Save changes</ion-button>
-          </ion-row>
-        </form>
-      </div>
-    </ion-accordion>
     <ion-accordion value="logout" (click)="logoutCurrentUser()">
       <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">
         <ion-label style="margin-left: 35px;" class="ion-text-center">Logout</ion-label>
       </ion-item>
-      <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px);" class="ion-padding" slot="content">
-        Logout
-      </div>
     </ion-accordion>
   </ion-accordion-group>

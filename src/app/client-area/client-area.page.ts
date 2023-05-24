@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Order } from '../models/order'
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service'
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-client-area',
@@ -14,6 +15,7 @@ export class ClientAreaPage implements OnInit {
   public orders: Order[];
   order: Order = {} as Order;
   orderLines!: any[];
+  user: User = {} as User;
 
   constructor(private httpConnection: HttpConnectionService, private router: Router, private cartService: CartService) { 
     this.orders = [];
@@ -21,6 +23,7 @@ export class ClientAreaPage implements OnInit {
 
   ngOnInit() {
     this.ordersByUser();
+    this.getInformationsUserLogged();
   }
 
   ordersByUser() {
@@ -57,8 +60,15 @@ export class ClientAreaPage implements OnInit {
         });
       });
     });
-    
   }
+
+  getInformationsUserLogged() {
+    this.httpConnection.get('entities/logged').subscribe((response) =>{
+      this.user = response as User;
+      console.log(this.user.address);
+    })
+  }
+
   saveToCart() {
     this.orderLines.forEach(({ product, quantity }) => {
       this.orderLines.forEach((orderLine) => {
@@ -69,6 +79,7 @@ export class ClientAreaPage implements OnInit {
       });
     });
   }  
+  
   
   logoutCurrentUser(){
     this.httpConnection.post('auth/logout', null)

@@ -9,7 +9,7 @@ import { HttpConnectionService } from '../auth/http-connection.service'
 
 export class AuthServiceService{
 
-  endPoint: string = 'http://185.113.143.51:8081/api/v1/auth'
+  endPoint: string = 'https://luxrest.lusohost.pt:8443/api/v1/auth'
   headers = new HttpHeaders().set('Content-Type', 'application/json')
   currentUser = {}
 

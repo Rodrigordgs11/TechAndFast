@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HttpConnectionService {
   
-  private readonly endPoint = 'http://185.113.143.51:8081/api/v1';
+  private readonly endPoint = 'https://luxrest.lusohost.pt:8443/api/v1';
 
   constructor(private http: HttpClient) { }
 

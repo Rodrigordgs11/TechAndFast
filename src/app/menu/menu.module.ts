@@ -8,8 +8,9 @@ import { MenuPageRoutingModule } from './menu-routing.module';
 
 import { MenuPage } from './menu.page';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HomePageModule } from '../home/home.module';
 import { HeaderModule } from '../components/header/header.module';
+import { SideMenuModule } from '../components/side-menu/side-menu.module'
+
 
 @NgModule({
   imports: [
@@ -17,8 +18,8 @@ import { HeaderModule } from '../components/header/header.module';
     FormsModule,
     IonicModule,
     MenuPageRoutingModule,
-    HomePageModule,
-    HeaderModule
+    HeaderModule,
+    SideMenuModule
   ],
   declarations: [
     MenuPage

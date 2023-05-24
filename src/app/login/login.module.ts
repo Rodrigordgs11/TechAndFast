@@ -8,10 +8,10 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-import { AuthServiceService } from '../services/auth.service';
-
 import { User } from '../models/user';
 import { HeaderModule } from '../components/header/header.module';
+import { SideMenuModule } from '../components/side-menu/side-menu.module'
+
 
 @NgModule({
   imports: [
@@ -20,7 +20,8 @@ import { HeaderModule } from '../components/header/header.module';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
-    HeaderModule
+    HeaderModule,
+    SideMenuModule
   ],
   declarations: [
     LoginPage

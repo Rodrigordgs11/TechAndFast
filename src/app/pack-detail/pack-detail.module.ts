@@ -8,6 +8,8 @@ import { PackDetailPageRoutingModule } from './pack-detail-routing.module';
 
 import { PackDetailPage } from './pack-detail.page';
 import { HeaderModule } from '../components/header/header.module'
+import { SideMenuModule } from '../components/side-menu/side-menu.module'
+
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { HeaderModule } from '../components/header/header.module'
     FormsModule,
     IonicModule,
     PackDetailPageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    SideMenuModule
   ],
   declarations: [PackDetailPage]
 })

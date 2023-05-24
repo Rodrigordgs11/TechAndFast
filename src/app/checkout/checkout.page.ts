@@ -4,7 +4,7 @@ import { Product } from '../models/product';
 import { NavController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { PaymentSuccessModalComponent } from '../components/payment-success-modal/payment-success-modal.component';
-import { HttpConnectionService } from '../services/http-connection.service'
+import { HttpConnectionService } from '../services/auth/http-connection.service'
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.page.html',

@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { RegisterPage } from './register.page';
 import { HeaderModule } from '../components/header/header.module';
+import { SideMenuModule } from '../components/side-menu/side-menu.module'
+
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { HeaderModule } from '../components/header/header.module';
     IonicModule,
     RegisterPageRoutingModule,
     ReactiveFormsModule,
-    HeaderModule
+    HeaderModule,
+    SideMenuModule
   ],
   declarations: [
     RegisterPage

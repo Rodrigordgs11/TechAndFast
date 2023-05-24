@@ -1,12 +1,4 @@
-<ion-menu contentId="main-content">
-  <ion-content class="background-menu ion-padding ion-text-center">
-    <h3 routerLink="/register">HOME</h3>
-    <h3 routerLink="/menu">MENU</h3>
-    <h3 routerLink="/reset-password">PROMOTIONS</h3>
-    <h3>ABOUT</h3>
-    <h3>CONTACT</h3>
-  </ion-content>
-</ion-menu>
+<app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
   <ion-header>
@@ -46,7 +38,8 @@
       </ion-grid>
     </ion-toolbar>
   </ion-header>
-  <ion-grid>
+  <p *ngIf="productCount === 0">Ainda não adicionou nenhum produto ao carrinho</p>
+  <ion-grid *ngIf="productCount !== 0">
     <ion-row style="background-color: #202426; margin-bottom: 5%;">
       <ion-col size="2">
       </ion-col>
@@ -100,5 +93,10 @@
         </ion-row>
       </ion-col>
     </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button routerLink="/checkout" style="--background: #F2C35B;">
+        Save
+      </ion-button>    
+    </ion-row>       
   </ion-grid>
 </ion-content>

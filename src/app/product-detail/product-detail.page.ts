@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpConnectionService } from '../services/http-connection.service';
+import { HttpConnectionService } from '../services/auth/http-connection.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service';

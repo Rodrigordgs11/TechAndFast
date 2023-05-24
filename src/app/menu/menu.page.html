@@ -1,13 +1,4 @@
-<ion-menu contentId="main-content">
-  <ion-content class="background-menu ion-padding ion-text-center">
-    <h3 routerLink="/register">HOME</h3>
-    <h3 routerLink="/menu">MENU</h3>
-    <h3 routerLink="/reset-password">PROMOTIONS</h3>
-    <h3 routerLink="/client-area">CLIENT AREA</h3>
-    <h3>ABOUT</h3>
-    <h3>CONTACT</h3>
-  </ion-content>
-</ion-menu>
+<app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
   <app-header></app-header>
@@ -17,9 +8,9 @@
       {{ Category.name }}
     </swiper-slide>
   </swiper-container>
-  <div class="background-product" *ngFor="let Product of Products" (click)="onProductClick(Product.id)">
+  <div class="background-product" *ngFor="let Product of Products" (click)="onProductClick(Product.id, Product.isPack)">
     <div class="ion-justify-content-center" style="position: relative;">
-      <ion-img class="imgProduct" src="../../assets/images/pizzaProduct.png" alt=""></ion-img>
+      <ion-img class="imgProduct" src="data:image/png;base64,{{ Product.image }}" alt=""></ion-img>
       <div class="ion-text-center containerProductAtributes">  
         <h3>{{ Product.name }}</h3>
         <p style="margin-left: 10px; margin-right: 10px;">Classic marinara sauce, authentic old-world pepperoni, all-natural Ita</p>

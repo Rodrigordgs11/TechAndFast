@@ -1,12 +1,4 @@
-<ion-menu contentId="main-content">
-  <ion-content class="background-menu ion-padding ion-text-center">
-    <h3 routerLink="/register">HOME</h3>
-    <h3 routerLink="/login">MENU</h3>
-    <h3 routerLink="/reset-password">PROMOTIONS</h3>
-    <h3>ABOUT</h3>
-    <h3>CONTACT</h3>
-  </ion-content>
-</ion-menu>
+<app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
   <app-header></app-header>
@@ -29,10 +21,55 @@
       </ion-item>
       <div style="padding-top: var(--ion-padding, 0px); padding-bottom: var(--ion-padding, 0px); background-color: #121618;" class="ion-padding" slot="content">
         <ion-row>
-          <ion-col size="12">
-            <p style="font-size: 13.5px;">Nª order 1 25/03/2023 11:11:11 10.00€ <u>show more</u></p>
+          <ion-col size="12" *ngFor="let order of orders">
+            <p style="font-size: 14px;">
+              Nª order {{ order?.id }} 
+              <span>{{ order.createdAt }}</span>
+              <span style="margin-left: 2%;">{{ order.amount }} €</span>
+              <u (click)="onClickShowMore(order.id)" style="margin-left: 2%;" [attr.id]="'open-custom-dialog-' + order.id">show more</u>
+            </p>
           </ion-col>
         </ion-row>
+        
+        <ion-modal *ngFor="let order of orders" [id]="'example-modal-' + order.id" #modal [trigger]="'open-custom-dialog-' + order.id">
+          <ng-template>
+            <div class="wrapper">
+              <h3>Order nº {{ order?.id }}</h3>
+              <ion-row *ngFor="let orderLine of orderLines" style="border-radius: 30px; background-color: #202426; margin-bottom: 5%; width: 90%;">
+                <ion-col size="2">
+                  <ion-img  src="../../assets/images/pizzaCart.png" alt="Tech and fast logotype"></ion-img>
+                </ion-col>
+                <ion-col size="10">
+                  <ion-row>
+                    <ion-col size="4">
+                      <ion-row>
+                        <p><ion-text class="ion-text-start" style="font-size: 13px; font-weight: bold;">{{ orderLine.productName }}</ion-text></p>
+                        <p><ion-text class="ion-text-start" style="font-size: 13px;">sandes</ion-text></p>
+                      </ion-row>
+                    </ion-col>          
+                    <ion-col size="2.5">
+                      <p>{{ orderLine.price }}€</p>
+                    </ion-col>
+                    <ion-col size="2">
+                      <ion-row>
+                      <p style="font-size: 15px;">{{ orderLine.quantity }}</p>
+                      </ion-row>
+                      </ion-col>
+                    <ion-col size="2.5">
+                      <p>{{ orderLine.quantity * orderLine.price }}€</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+              <p>Amount {{ order?.amount }} €</p>
+              <ion-row class="ion-justify-content-end">
+                <ion-button (click)="saveToCart()" style="--background: #F2C35B;">
+                  Order again
+                </ion-button>                   
+              </ion-row>  
+            </div>
+          </ng-template>
+        </ion-modal>
       </div>
     </ion-accordion>
     <ion-accordion value="adresses">

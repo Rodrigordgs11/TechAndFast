@@ -17,3 +17,31 @@ h3, .label{
     margin-left: 10px; 
     width: 310px;
   }
+
+  ion-modal{
+    --width: fit-content;
+    --min-width: 350px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  
+  ion-modal h1 {
+    margin: 20px 20px 10px 20px;
+  }
+  
+  ion-modal .wrapper {
+    border-radius: 10px;
+    border: 2px solid #fff;
+    margin-bottom: 10px;
+    background-color: #121618;
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+  

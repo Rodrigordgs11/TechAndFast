@@ -8,6 +8,8 @@ import { ClientAreaPageRoutingModule } from './client-area-routing.module';
 
 import { ClientAreaPage } from './client-area.page';
 import { HeaderModule } from '../components/header/header.module';
+import { SideMenuModule } from '../components/side-menu/side-menu.module'
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { HeaderModule } from '../components/header/header.module';
     FormsModule,
     IonicModule,
     ClientAreaPageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    SideMenuModule
   ],
   declarations: [ClientAreaPage]
 })

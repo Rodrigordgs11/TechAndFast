@@ -44,4 +44,15 @@ h3, .label{
     align-items: center;
     height: 70vh;
   }
-  
+
+  ion-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+
+  ion-button {
+    --background: #F2C35B;
+    --background-activated: transparent !important;
+    --background-activated-opacity: 0.5;
+}

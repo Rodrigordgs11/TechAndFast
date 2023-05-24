@@ -9,8 +9,10 @@ ion-content, ion-list, ion-toolbar, ion-item, .background-child-item {
   
 ion-button {
   --background: #F2C35B;
+  --background-activated: transparent !important;
+  --background-activated-opacity: 0.5;
 }
-
+    
 .productButton {
     --background: transparent;
     border: 2px white solid;

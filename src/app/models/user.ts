@@ -8,5 +8,5 @@ export interface User  {
     isDeleted: boolean;
     name: string;
     phone: number;
-    zipCode 
+    zipCode: any;
 }

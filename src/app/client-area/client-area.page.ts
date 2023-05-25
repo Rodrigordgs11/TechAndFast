@@ -65,7 +65,6 @@ export class ClientAreaPage implements OnInit {
   getInformationsUserLogged() {
     this.httpConnection.get('entities/logged').subscribe((response) =>{
       this.user = response as User;
-      console.log(this.user.address);
     })
   }
 

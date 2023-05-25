@@ -41,7 +41,7 @@ export class MenuPage implements OnInit {
       }
     },
       (error: any) => {
-        if(error.status === 401) {
+        if(error.status !== 200) {
           this.router.navigate(['/login']);
         }
     })
@@ -56,7 +56,6 @@ export class MenuPage implements OnInit {
   onCategoryClick(categoryId: any) {
     if (categoryId == 4) {
       this.http.get<any>('packs/category/' + categoryId).subscribe(res => {
-        console.log(res);
         if (res != null) {
           this.Products = res;
           this.selectedCategoryId = categoryId;
@@ -74,7 +73,6 @@ export class MenuPage implements OnInit {
     }
     
     this.http.get<any>('products/category/'+ categoryId).subscribe(res => {
-      console.log(res)
       if(res != null) {
         this.Products = res;
         this.selectedCategoryId = categoryId;

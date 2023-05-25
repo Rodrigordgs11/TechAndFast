@@ -90,7 +90,6 @@ export class RegisterPage implements OnInit {
       
     }
 
-    console.log(Name, username , email, phone, fiscalNumber, password, address, city, zipCode)
     this.authService.register(Name, username, email, phone, fiscalNumber, password, address, city, zipCode)
   }  
 }

@@ -28,8 +28,6 @@ export class AuthServiceService{
 
   register(name: string, username: string, email: string, phone: number, fiscalNumber: number, password: any, address: any, city: string, zipCode: any){
     const userObj = {name, username, email, phone, fiscalNumber, password, address, city, zipCode};
-    console.log(userObj);
-    console.log(this.endPoint + '/register');
     return this.http.post<any>(this.endPoint + '/register', userObj)
       .subscribe(() => {
         this.router.navigate(['/login']);
@@ -38,13 +36,9 @@ export class AuthServiceService{
 
   signIn(username: any, password: any) {
     const userObj = { username, password };
-    console.log(userObj);
-    console.log(this.endPoint + '/authenticate');
     return this.http.post<any>(this.endPoint + '/authenticate', userObj)
       .subscribe((res: any) => {
-        console.log(res.access_token);
         localStorage.setItem('access_token', res.access_token);
-        console.log(localStorage.getItem('access_token'))
         this.router.navigate(['/menu']);
         // guardar informções do user
       }, (error: any) => {
@@ -63,7 +57,6 @@ export class AuthServiceService{
       this.httpConnection.post('auth/refresh-token', null)
         .subscribe((res: any) => {
           localStorage.setItem('access_token', res.access_token);
-          console.log(localStorage.getItem('access_token'));
         });
     }
   }  

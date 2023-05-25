@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Product } from '../models/product';
 import { NavController } from '@ionic/angular';
-import { ModalController } from '@ionic/angular';
-import { PaymentSuccessModalComponent } from '../components/payment-success-modal/payment-success-modal.component';
 import { HttpConnectionService } from '../services/auth/http-connection.service'
 import { User } from '../models/user';
-import { error } from 'console';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout',
@@ -52,7 +49,6 @@ export class CheckoutPage implements OnInit {
       paymentMethod: 'CASH',
       orderLine: orderLine
     };
-    console.log(orderData)
 
     this.http.post<any>('orders', orderData).subscribe(
       (response: any) => {

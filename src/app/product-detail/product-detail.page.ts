@@ -37,7 +37,6 @@ export class ProductDetailPage implements OnInit {
   productAtributes(productid: number) {
     this.http.get<any>('products/' + productid).subscribe(res => {
       if (res != null) { 
-        console.log(res);
         this.product = res;
       }
     },

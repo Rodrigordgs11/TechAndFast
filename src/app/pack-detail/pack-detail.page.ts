@@ -68,7 +68,6 @@ export class PackDetailPage implements OnInit {
       if (res != null) {
         this.category = res;
         this.categoryName = this.category.name;
-        console.log(this.category);
       }
     },
       (error: any) => {
@@ -81,13 +80,10 @@ export class PackDetailPage implements OnInit {
   productOfPack() {
     this.http.get<any>('packs/' + this.packId).subscribe(res => {
       if (res != null) {
-        console.log(res);
         this.pack = res;
-        console.log(this.pack);
         this.produtctsPack = res.packLine;
         
         for (let i = 0; i < this.produtctsPack.length; i++) {
-          console.log(this.produtctsPack[i].product);
         
           this.http.get<any>('products/' + this.produtctsPack[i].product).subscribe(res => {
             if (res != null) {
@@ -103,12 +99,10 @@ export class PackDetailPage implements OnInit {
   onClickProduct(productId: any) {
     this.http.get<any>('products/' + productId).subscribe(res => {
       if (res != null) { 
-        console.log(productId)
         this.product = res;
         this.product.price = this.pricePack;
         this.product.name = this.product.name + '(Pack)'
         this.packComplete = true;
-        console.log(this.produtctsPack);
       }
     })
 

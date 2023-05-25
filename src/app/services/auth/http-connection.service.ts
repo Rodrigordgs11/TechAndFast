@@ -17,7 +17,6 @@ export class HttpConnectionService {
         'Authorization': 'Bearer ' + localStorage.getItem('access_token')
       })
     };
-    console.log(httpOptions);
     return this.http.get<T>(`${this.endPoint}/${url}`, httpOptions);
   }
 

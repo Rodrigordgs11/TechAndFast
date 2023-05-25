@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpConnectionService } from '../services/auth/http-connection.service'
-import { Router } from '@angular/router';
+import { Router, NavigationEnd  } from '@angular/router';
 import { Order } from '../models/order'
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service'
@@ -22,6 +22,15 @@ export class ClientAreaPage implements OnInit {
   }
 
   ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (localStorage.getItem('access_token') === null) {
+          this.router.navigate(['/login']);
+          return;
+        }
+      }
+    });
+
     this.ordersByUser();
     this.getInformationsUserLogged();
   }

@@ -3,7 +3,7 @@ import { register } from 'swiper/element/bundle';
 import { HttpConnectionService } from '../services/auth/http-connection.service';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { AuthServiceService } from '../services/auth/auth.service';
@@ -28,6 +28,15 @@ export class MenuPage implements OnInit {
   }
 
   ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (localStorage.getItem('access_token') === null) {
+          this.router.navigate(['/login']);
+          return;
+        }
+      }
+    });
+
     if (localStorage.getItem('access_token') !== null) {
       this.subscription = timer(10000, 50000).pipe( 
         switchMap(async () => this.authService.refresh())
@@ -39,11 +48,6 @@ export class MenuPage implements OnInit {
         this.Categories = res;
         this.selectedCategoryId = 1;
       }
-    },
-      (error: any) => {
-        if(error.status !== 200) {
-          this.router.navigate(['/login']);
-        }
     })
 
     this.http.get<any>('products/category/1').subscribe(res => {

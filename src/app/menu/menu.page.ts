@@ -66,6 +66,7 @@ export class MenuPage implements OnInit {
     
           this.Products.forEach(product => {
             product.isPack = true;
+            product.price = 10.00;
           });
         }
       },

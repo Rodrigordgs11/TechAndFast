@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { BehaviorSubject } from 'rxjs';
+import { HttpConnectionService } from './auth/http-connection.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class CartService {
   cartItems: { product: Product, quantity: number }[] = [];
   productCountSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalPriceSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+  constructor(private http: HttpConnectionService) { }
 
   findProductIndexById(productId: number): number {
     const index = this.cartItems.findIndex(item => item.product.id === productId);
@@ -31,6 +34,9 @@ export class CartService {
     if (index !== -1) {
       this.cartItems[index].quantity += quantity;
     } else {
+      this.http.get<{ name: string }>('categories/' + product.category).subscribe((res) => {
+        product.category = res.name;
+      });
       this.cartItems.push({ product, quantity });
     }
     this.updateProductCount();

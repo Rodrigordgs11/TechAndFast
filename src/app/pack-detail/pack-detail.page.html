@@ -40,11 +40,13 @@
       <div class="ion-padding background-child-item" slot="content">
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col>
-            <ion-img src="../../assets/images/cola.png" style="width: 60%; height: 60%;"></ion-img>        
+            <ion-img src="../../assets/images/cola.png" style="width: 60%; height: 60%;"></ion-img>    
+            <p>Coca-cola</p>      
             <ion-button class="productButton" [ngClass]="{'selected': isColaSelected}" (click)="colaSelect()">Select</ion-button>
           </ion-col>
           <ion-col>
             <ion-img src="../../assets/images/fanta.png" style="width: 60%; height: 60%;"></ion-img>        
+            <p>Fanta de laranja</p>  
             <ion-button class="productButton" [ngClass]="{'selected': isFantaSelected}" (click)="fantaSelect()">Select</ion-button>
           </ion-col>                            
         </ion-row>        

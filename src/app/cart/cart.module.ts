@@ -8,6 +8,7 @@ import { CartPageRoutingModule } from './cart-routing.module';
 
 import { CartPage } from './cart.page';
 import { SideMenuModule } from '../components/side-menu/side-menu.module'
+import { HeaderModule } from '../components/header/header.module'
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SideMenuModule } from '../components/side-menu/side-menu.module'
     FormsModule,
     IonicModule,
     CartPageRoutingModule,
-    SideMenuModule
+    SideMenuModule,
+    HeaderModule
   ],
   declarations: [CartPage]
 })

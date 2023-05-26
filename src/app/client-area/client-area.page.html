@@ -33,7 +33,6 @@
         <ion-modal *ngFor="let order of orders" [id]="'example-modal-' + order.id" #modal [trigger]="'open-custom-dialog-' + order.id">
           <ng-template>
             <div class="wrapper">
-              <h3>Order nº {{ order?.id }}</h3>
               <ion-row *ngFor="let orderLine of orderLines" style="border-radius: 30px; background-color: #202426; margin-bottom: 5%; width: 90%;">
                 <ion-col size="2">
                   <ion-img  src="../../assets/images/pizzaCart.png" alt="Tech and fast logotype"></ion-img>

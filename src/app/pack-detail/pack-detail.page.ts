@@ -26,7 +26,7 @@ export class PackDetailPage implements OnInit {
   categoryName!: string
 
 
-  produtctsPack: { product: number, price: number, name: string }[] = [];
+  produtctsPack: { product: number, price: number, name: string, img: any }[] = [];
   pricePack: number = 0;
   isFantaSelected = false;
   isColaSelected = false;
@@ -40,8 +40,6 @@ export class PackDetailPage implements OnInit {
     this.isFantaSelected = false;
     this.isColaSelected = true;
   }
-  
-  
   
   constructor(
     private http: HttpConnectionService,
@@ -89,6 +87,7 @@ export class PackDetailPage implements OnInit {
             if (res != null) {
               this.produtctsPack[i].name = res.name;
               this.pricePack = this.produtctsPack[i].price; 
+              this.produtctsPack[i].img = res.image
             }
           });
         }

@@ -4,16 +4,16 @@
   <app-header></app-header>
   <ion-row style="margin: 10px">
     <ion-col size="6">
-      <ion-img src="../../assets/images/pizzaProduct.png" alt=""></ion-img>
+      <ion-img src="../../assets/images/hamburger.png" alt=""></ion-img>
       <ion-row style="margin-top: 10px;">
         <ion-col size="4">
-          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+          <ion-img src="../../assets/images/hamburger.png" alt=""></ion-img>
         </ion-col>
         <ion-col size="4">
-          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+          <ion-img src="../../assets/images/hamburger.png" alt=""></ion-img>
         </ion-col>
         <ion-col size="4">
-          <ion-img src="../../assets/images/pizzaProductDetailLittle.png" alt=""></ion-img>
+          <ion-img src="../../assets/images/hamburger.png" alt=""></ion-img>
         </ion-col>
       </ion-row>
     </ion-col>
@@ -61,7 +61,7 @@
       <div class="ion-padding background-child-item" slot="content">
         <ion-row class="ion-align-items-center ion-justify-content-center">
           <ion-col *ngFor="let productPack of produtctsPack">
-            <ion-img src="../../assets/images/cola.png" style="width: 60%; height: 60%;"></ion-img>
+            <ion-img class="imgProduct" src="data:image/png;base64,{{ productPack.img }}" alt="" style="width: 60%; height: 60%;"></ion-img>
             <p>{{ productPack.name }}</p>     
             <ion-button class="productButton" [ngClass]="{'selected': selectedProductId === productPack.product}" (click)="onClickProduct(productPack.product)">Select</ion-button>
           </ion-col>

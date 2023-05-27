@@ -1,14 +1,14 @@
 <app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
-  <app-header></app-header>
+  <app-header [bannerName]="'Menu'"></app-header>
   <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="false">
     <swiper-slide *ngFor="let Category of Categories" (click)="onCategoryClick(Category.id)" 
       [ngClass]="{'selected': selectedCategoryId === Category.id}" id="{{ Category.id }}" class="ion-text-center">
       {{ Category.name }}
     </swiper-slide>
   </swiper-container>
-  <div class="background-product" *ngFor="let Product of Products" (click)="onProductClick(Product.id, Product.isPack)">
+  <div class="background-product" *ngFor="let Product of Products" (click)="onProductClick(Product.id, Product.isPack)" style="padding-bottom: 5%;">
     <div class="ion-justify-content-center" style="position: relative;">
       <ion-img class="imgProduct" src="data:image/png;base64,{{ Product.image }}" alt=""></ion-img>
       <div class="ion-text-center containerProductAtributes">  

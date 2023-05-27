@@ -1,7 +1,7 @@
 <app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
-  <app-header></app-header>
+  <app-header [bannerName]="'Client Area'"></app-header>
   <ion-accordion-group expand="inset" [value]="['Dashboard']">
     <ion-accordion value="Dashboard">
       <ion-item slot="header" style="--background: #F2C35B; color: #121618; --color-activated: #121618;">

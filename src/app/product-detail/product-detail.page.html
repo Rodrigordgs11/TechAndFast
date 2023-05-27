@@ -1,7 +1,7 @@
 <app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
-  <app-header></app-header>
+  <app-header [bannerName]="'Product Detail'"></app-header>
   <ion-row style="margin-left: 10px; margin-right: 10px; margin-top: 10px;">
     <ion-col size="6">
       <ion-img src="data:image/png;base64,{{ product.image }}" alt=""></ion-img>

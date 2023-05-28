@@ -45,11 +45,12 @@ h3, .label{
     padding-bottom: 5%;  
   }
 
-  ion-row{
+  ion-row {
     display: flex;
-    justify-content: center;
     align-items: center;
-  }  
+    flex-wrap: wrap;
+  }
+  
 
   ion-button {
     --background: #F2C35B;

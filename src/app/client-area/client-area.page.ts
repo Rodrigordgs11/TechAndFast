@@ -5,6 +5,7 @@ import { Order } from '../models/order'
 import { Product } from '../models/product';
 import { CartService } from '../services/cart.service'
 import { User } from '../models/user';
+import { Category } from '../models/category';
 
 @Component({
   selector: 'app-client-area',
@@ -66,6 +67,12 @@ export class ClientAreaPage implements OnInit {
         this.httpConnection.get('products/' + orderLine.product).subscribe((productResponse) => {
           const product = productResponse as Product;
           orderLine.productName = product.name;
+          orderLine.image = product.image
+          this.httpConnection.get('categories/' + product.category).subscribe((categoryResponse) => {
+            console.log(categoryResponse);
+            const category = categoryResponse as Category;
+            orderLine.category = category.name
+          })
         });
       });
     });

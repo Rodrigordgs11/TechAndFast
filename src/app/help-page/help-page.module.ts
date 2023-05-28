@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { HelpPagePageRoutingModule } from './help-page-routing.module';
 
 import { HelpPagePage } from './help-page.page';
+import { HeaderModule } from '../components/header/header.module';
+import { SideMenuModule } from '../components/side-menu/side-menu.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HelpPagePageRoutingModule
+    HelpPagePageRoutingModule,
+    SideMenuModule,
+    HeaderModule
   ],
   declarations: [HelpPagePage]
 })

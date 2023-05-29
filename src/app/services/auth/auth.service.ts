@@ -37,7 +37,6 @@ export class AuthServiceService{
     await alert.present();
   }
 
-
   register(name: string, username: string, email: string, phone: number, fiscalNumber: number, password: any, address: any, city: string, zipCode: any){
     const userObj = {name, username, email, phone, fiscalNumber, password, address, city, zipCode};
     return this.http.post<any>(this.endPoint + '/register', userObj)

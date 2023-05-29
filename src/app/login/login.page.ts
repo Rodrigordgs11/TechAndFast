@@ -17,9 +17,7 @@ export class LoginPage implements OnInit, ViewWillEnter {
   }
 
   loginForm! : FormGroup
-  constructor(private authService: AuthServiceService) {
-    //this.displayError = this.displayError.bind(this);
-   }
+  constructor(private authService: AuthServiceService) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -28,13 +26,6 @@ export class LoginPage implements OnInit, ViewWillEnter {
     })
   }
   
-  //displayError() {
-    //if (this.authService.msg == 401) {
-     // return { displayError: true };
-    //}
-    //return null;
-  //}
-
   get username(){
     return this.loginForm.get('username')!;
   }

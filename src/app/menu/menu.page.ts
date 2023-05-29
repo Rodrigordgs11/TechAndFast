@@ -28,21 +28,16 @@ export class MenuPage implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        if (localStorage.getItem('access_token') === null) {
-          this.router.navigate(['/login']);
-          return;
-        }
-      }
-    });
+    if (localStorage.getItem('access_token') === null) {
+      this.router.navigate(['/login']);
+      return;
+    }
 
-    if (localStorage.getItem('access_token') !== null) {
-      this.subscription = timer(10000, 50000).pipe( 
-        switchMap(async () => this.authService.refresh())
-      ).subscribe();
-    }  
-    
+    this.refreshToken();
+    this.initialSelectedCategoryAndProducts();
+  }
+
+  initialSelectedCategoryAndProducts() {
     this.http.get<any>('categories').subscribe(res => {
       if(res != null) {
         this.Categories = res;
@@ -55,6 +50,14 @@ export class MenuPage implements OnInit {
         this.Products = res;
       }
     })
+  }
+
+  refreshToken(){
+    if (localStorage.getItem('access_token') !== null) {
+      this.subscription = timer(10000, 50000).pipe( 
+        switchMap(async () => this.authService.refresh())
+      ).subscribe();
+    }  
   }
 
   onCategoryClick(categoryId: any) {
@@ -91,7 +94,6 @@ export class MenuPage implements OnInit {
     });
   }
   
-
   onProductClick(productId: number, isPack: boolean) {
     if(isPack == true) {
       this.router.navigate(['/pack-detail', productId]);

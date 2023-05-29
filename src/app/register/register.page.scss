@@ -135,7 +135,7 @@ h3, label{
 }
 
 ion-button{
-  --background: #F2C35B; 
+  --background: var(--ion-color-primary-color);
   width: 200px; 
   height: 35px; 
   color: #121618;

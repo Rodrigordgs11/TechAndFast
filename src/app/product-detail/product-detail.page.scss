@@ -7,7 +7,7 @@ ion-content, ion-list, ion-toolbar {
 }
   
 ion-button {
-    --background: #F2C35B;
+    --background: var(--ion-color-primary-color);
     color: #121618;
     --background-activated: var(--ion-color-primary-background-color);
     --background-activated-opacity: 0.5;

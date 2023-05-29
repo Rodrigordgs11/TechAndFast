@@ -62,13 +62,13 @@ ion-radio.radio-checked::part(mark) {
 }
 
 ion-button {
-    --background: #F2C35B;
+    --background: var(--ion-color-primary-color);
     --background-activated: transparent !important;
     --background-activated-opacity: 0.5;
 }
 
 .buttonSave {
-    --background: #F2C35B;
+    --background: var(--ion-color-primary-color);
     color: #121618;
     --background-activated: var(--ion-color-primary-background-color);
     --background-activated-opacity: 0.5;

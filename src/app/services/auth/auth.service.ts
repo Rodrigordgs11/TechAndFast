@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { HttpConnectionService } from '../auth/http-connection.service'
-import { error } from 'console';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,10 +40,8 @@ export class AuthServiceService{
 
   register(name: string, username: string, email: string, phone: number, fiscalNumber: number, password: any, address: any, city: string, zipCode: any){
     const userObj = {name, username, email, phone, fiscalNumber, password, address, city, zipCode};
-    let error;
     return this.http.post<any>(this.endPoint + '/register', userObj)
-      .subscribe(( res: any) => {
-        error = res.error;
+      .subscribe(() => {
         this.router.navigate(['/login']);
       }, (error: any) => {
         if(error.status === 409) {

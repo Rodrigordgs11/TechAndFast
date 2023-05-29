@@ -22,7 +22,7 @@
         <h3 style="margin-left: 2%; font-size: 20px; font-weight: regular;">{{ product.name }}</h3>
         <p style="font-weight: bold; font-size: 17px; color: #F2C35B; margin-left: 2%;"> {{ product.price }} €</p>
         <ion-row>
-          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 15px;" shape="round"  (click)="descrementQuantity()">-</ion-button>
+          <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 15px;" shape="round" (click)="descrementQuantity()">-</ion-button>
           <p style="font-size: 20px; margin-top: 10px; margin-left: 2%; margin-right: 2%;">{{ quantity }}</p>
           <ion-button style="--padding-start: 15px; --padding-end: 15px; font-size: 10px;" shape="round" (click)="incrementQuantity()">+</ion-button>
           <ion-button style="font-size: 11px; width: 55%; color: black;" (click)="addProductToCart()" routerLink="/menu">Add cart ></ion-button>

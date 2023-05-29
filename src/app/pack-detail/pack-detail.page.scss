@@ -12,6 +12,13 @@ ion-button {
   --background-activated: transparent !important;
   --background-activated-opacity: 0.5;
 }
+
+.button-save {
+    --background: #F2C35B;
+    color: #121618;
+    --background-activated: var(--ion-color-primary-background-color);
+    --background-activated-opacity: 0.5;
+}
     
 .productButton {
     --background: transparent;
@@ -31,3 +38,4 @@ p, h3{
     --background: #F2C35B;
     border: 0px;
 }
+

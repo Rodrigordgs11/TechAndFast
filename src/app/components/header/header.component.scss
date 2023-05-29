@@ -3,14 +3,14 @@
     height: 45%;
   }
   
-  ion-content, ion-list, ion-toolbar {
-      --background: var(--ion-color-primary-background-color);
-  }
-  
-  .background-menu{
-      --background: var(--ion-color-primary-color);
-  }
-  
-  ion-badge {
-      background-color: #F2C35B;
-  }
+ion-content, ion-list, ion-toolbar {
+    --background: var(--ion-color-primary-background-color);
+}
+
+.background-menu{
+    --background: var(--ion-color-primary-color);
+}
+
+ion-badge {
+    background-color: #F2C35B;
+}

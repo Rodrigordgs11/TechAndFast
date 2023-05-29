@@ -80,7 +80,7 @@
       <ion-input 
         style="margin-bottom: 20px; --background: transparent;" 
         class="inputs-form" 
-        type="text" 
+        type="Password"
         fill="solid" 
         label="Password" 
         labelPlacement="floating" 
@@ -93,7 +93,7 @@
       <ion-input 
         style="margin-bottom: 20px; --background: transparent;" 
         class="inputs-form" 
-        type="text" 
+        type="Password"  
         fill="solid" 
         label="Confirm Password" 
         labelPlacement="floating" 
@@ -104,8 +104,10 @@
         <p *ngIf="confirmPassword.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Confirm password cannot be empty</ion-text></p>
       </div>
       <div *ngIf="formDir.submitted">
-        <p *ngIf="password !== confirmPassword"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Passwords dont match</ion-text></p>
-      </div>
+        <p *ngIf="password.value !== confirmPassword.value">
+          <ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Passwords don't match</ion-text>
+        </p>
+      </div>      
       <ion-input 
         style="margin-bottom: 20px; --background: transparent;" 
         class="inputs-form" 

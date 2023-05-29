@@ -63,6 +63,8 @@
       <div *ngIf="phone.invalid && formDir.submitted">
         <p *ngIf="phone.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Address cannot be empty</ion-text></p>
         <p *ngIf="phone.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Phone must be at least 9 numbers long.</ion-text></p>
+        <p *ngIf="phone.errors?.['maxlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Phone must be at least 9 numbers long.</ion-text></p>
+
       </div> 
       <ion-input 
         style="margin-bottom: 20px; --background: transparent;" 
@@ -121,6 +123,7 @@
       <div *ngIf="fiscalNumber.invalid && formDir.submitted">
         <p *ngIf="fiscalNumber.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Fiscal number cannot be empty</ion-text></p>
         <p *ngIf="fiscalNumber.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name must be at least 10 characters long.</ion-text></p>
+        <p *ngIf="fiscalNumber.errors?.['maxlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name must be at least 10 characters long.</ion-text></p>
       </div>
       <ion-input 
         style="margin-bottom: 20px; --background: transparent;" 
@@ -147,7 +150,8 @@
       </ion-input>  
       <div *ngIf="zipCode.invalid && formDir.submitted">
         <p *ngIf="zipCode.errors?.['required']"><ion-text  color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">ZipCode cannot be empty</ion-text></p>
-        <p *ngIf="zipCode.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">Name must be at least 10 characters long.</ion-text></p>
+        <p *ngIf="zipCode.errors?.['minlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">ZipCode must be at least 10 characters long.</ion-text></p>
+        <p *ngIf="zipCode.errors?.['maxlength']"><ion-text color="danger" style="margin-left: 10px; font-size: 12px; --highlight-color: #F2C35B;">ZipCode must be at least 10 characters long.</ion-text></p>
       </div>
       <ion-grid>
         <ion-row style="margin-bottom: 20px;">

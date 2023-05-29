@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from '../services/auth/auth.service';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -10,7 +9,6 @@ import { AuthServiceService } from '../services/auth/auth.service';
 export class RegisterPage implements OnInit {
   loginForm! : FormGroup
   
-
   constructor(private authService: AuthServiceService) {}
 
   ngOnInit(): void {
@@ -18,13 +16,13 @@ export class RegisterPage implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       username: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required, Validators.minLength(9)]),
+      phone: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       address: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      fiscalNumber: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      fiscalNumber: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
       confirmPassword: new FormControl('', [Validators.required]),
       city: new FormControl('', [Validators.required]),
-      zipCode: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      zipCode: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
     })
   }
 
@@ -87,7 +85,6 @@ export class RegisterPage implements OnInit {
 
     if(password !== confirmPassword){
       return;  
-      
     }
 
     this.authService.register(Name, username, email, phone, fiscalNumber, password, address, city, zipCode)

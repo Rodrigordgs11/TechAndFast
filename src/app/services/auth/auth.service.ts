@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { HttpConnectionService } from '../auth/http-connection.service'
+import { error } from 'console';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,12 +27,30 @@ export class AuthServiceService{
     await alert.present();
   }
 
+  async displayError(subHeader: string, message: string) {
+    const alert = await this.alertController.create({
+      header: 'Error Register',
+      subHeader: subHeader,
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+
   register(name: string, username: string, email: string, phone: number, fiscalNumber: number, password: any, address: any, city: string, zipCode: any){
     const userObj = {name, username, email, phone, fiscalNumber, password, address, city, zipCode};
+    let error;
     return this.http.post<any>(this.endPoint + '/register', userObj)
-      .subscribe(() => {
+      .subscribe(( res: any) => {
+        error = res.error;
         this.router.navigate(['/login']);
-      })
+      }, (error: any) => {
+        if(error.status === 409) {
+          this.displayError(error.error.message, error.error.details)
+        }
+      });
   }
 
   signIn(username: any, password: any) {
@@ -40,7 +59,6 @@ export class AuthServiceService{
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.access_token);
         this.router.navigate(['/menu']);
-        // guardar informções do user
       }, (error: any) => {
         if(error.status === 401) {
           this.presentAlert();

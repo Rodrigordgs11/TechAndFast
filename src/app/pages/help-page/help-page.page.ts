@@ -11,5 +11,4 @@ export class HelpPagePage implements OnInit {
 
   ngOnInit() {
   }
-
 }

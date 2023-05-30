@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpConnectionService } from '../services/auth/http-connection.service';
-import { CartService } from '../services/cart.service';
-import { Category } from '../models/category';
-import { Pack } from '../models/pack';
+import { HttpConnectionService } from '../../services/auth/http-connection.service';
+import { CartService } from '../../services/cart.service';
+import { Category } from '../../models/category';
+import { Pack } from '../../models/pack';
 
 @Component({
   selector: 'app-pack-detail',

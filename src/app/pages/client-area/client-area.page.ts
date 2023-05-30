@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpConnectionService } from '../services/auth/http-connection.service'
+import { HttpConnectionService } from '../../services/auth/http-connection.service'
 import { Router, NavigationEnd  } from '@angular/router';
-import { Order } from '../models/order'
-import { Product } from '../models/product';
-import { CartService } from '../services/cart.service'
-import { User } from '../models/user';
-import { Category } from '../models/category';
+import { Order } from '../../models/order'
+import { Product } from '../../models/product';
+import { CartService } from '../../services/cart.service'
+import { User } from '../../models/user';
+import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-client-area',

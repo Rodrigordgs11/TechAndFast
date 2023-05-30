@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ClientAreaPageRoutingModule } from './client-area-routing.module';
 
 import { ClientAreaPage } from './client-area.page';
-import { HeaderModule } from '../components/header/header.module';
-import { SideMenuModule } from '../components/side-menu/side-menu.module'
+import { HeaderModule } from '../../components/header/header.module';
+import { SideMenuModule } from '../../components/side-menu/side-menu.module'
 
 
 @NgModule({

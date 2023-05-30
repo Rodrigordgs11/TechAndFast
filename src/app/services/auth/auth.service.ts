@@ -11,7 +11,6 @@ export class AuthServiceService{
 
   endPoint: string = 'https://luxrest.lusohost.pt:8443/api/v1/auth'
   headers = new HttpHeaders().set('Content-Type', 'application/json')
-  currentUser = {}
 
   constructor(private http: HttpClient, public router: Router, public alertController: AlertController, private httpConnection:HttpConnectionService) {}
 

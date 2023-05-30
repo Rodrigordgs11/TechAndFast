@@ -7,8 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { PackDetailPageRoutingModule } from './pack-detail-routing.module';
 
 import { PackDetailPage } from './pack-detail.page';
-import { HeaderModule } from '../components/header/header.module'
-import { SideMenuModule } from '../components/side-menu/side-menu.module'
+import { HeaderModule } from '../../components/header/header.module'
+import { SideMenuModule } from '../../components/side-menu/side-menu.module'
 
 
 

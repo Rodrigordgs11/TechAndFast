@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { register } from 'swiper/element/bundle';
-import { HttpConnectionService } from '../services/auth/http-connection.service';
-import { Category } from '../models/category';
-import { Product } from '../models/product';
+import { HttpConnectionService } from '../../services/auth/http-connection.service';
+import { Category } from '../../models/category';
+import { Product } from '../../models/product';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { AuthServiceService } from '../services/auth/auth.service';
+import { AuthServiceService } from '../../services/auth/auth.service';
 
 register();
 

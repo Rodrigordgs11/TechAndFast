@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
-import { Product } from '../models/product';
+import { CartService } from '../../services/cart.service';
+import { Product } from '../../models/product';
 import { NavController } from '@ionic/angular';
-import { HttpConnectionService } from '../services/auth/http-connection.service'
-import { User } from '../models/user';
+import { HttpConnectionService } from '../../services/auth/http-connection.service'
+import { User } from '../../models/user';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout',

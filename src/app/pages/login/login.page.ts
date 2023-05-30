@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthServiceService } from '../services/auth/auth.service'
+import { AuthServiceService } from '../../services/auth/auth.service'
 import { ScreenOrientation, OrientationLockOptions } from '@capacitor/screen-orientation';
 import { ViewWillEnter } from '@ionic/angular/types/ionic-lifecycle-hooks';
 

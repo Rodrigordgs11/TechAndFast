@@ -9,38 +9,39 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'client-area',
-    loadChildren: () => import('./client-area/client-area.module').then( m => m.ClientAreaPageModule)
+    loadChildren: () => import('./pages/client-area/client-area.module').then( m => m.ClientAreaPageModule)
   },
   {
     path: 'menu',
-    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
     path: 'product-detail/:productId',
-    loadChildren: () => import('./product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
+    loadChildren: () => import('./pages/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
   },  
   {
     path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
   },
   {
     path: 'checkout',
-    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+    loadChildren: () => import('./pages/checkout/checkout.module').then( m => m.CheckoutPageModule)
   },
   {
     path: 'pack-detail/:productId',
-    loadChildren: () => import('./pack-detail/pack-detail.module').then( m => m.PackDetailPageModule)
-  },  {
+    loadChildren: () => import('./pages/pack-detail/pack-detail.module').then( m => m.PackDetailPageModule)
+  },
+  {
     path: 'help-page',
-    loadChildren: () => import('./help-page/help-page.module').then( m => m.HelpPagePageModule)
+    loadChildren: () => import('./pages/help-page/help-page.module').then( m => m.HelpPagePageModule)
   }
 
 ];

@@ -43,6 +43,11 @@ export class MenuPage implements OnInit {
         this.Categories = res;
         this.selectedCategoryId = 1;
       }
+    }, 
+      (error: any) => {
+      if (error.status === 401) {
+        this.router.navigate(['/login']);
+      }
     })
 
     this.http.get<any>('products/category/1').subscribe(res => {

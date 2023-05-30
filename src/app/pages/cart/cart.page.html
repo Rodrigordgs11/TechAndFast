@@ -1,7 +1,7 @@
 <app-side-menu></app-side-menu>
 
 <ion-content [fullscreen]="true" class="ion-page" id="main-content">
-  <app-header [bannerName]="'Checkout'"></app-header>
+  <app-header [bannerName]="'Cart'"></app-header>
   <p *ngIf="productCount === 0" style="text-align: center;">Ainda não adicionou nenhum produto ao carrinho</p>
   <ion-grid *ngIf="productCount !== 0">
     <ion-row style="background-color: #202426; margin-bottom: 5%;">
@@ -41,11 +41,11 @@
           </ion-col>
           <ion-col size="3">
             <ion-row>
-            <ion-button (click)="descrementQuantity(item.product.id)" style="--background: #383C3E;; --padding-start: 0.6em; --padding-end: 0.6em;">-</ion-button>
-            <p style="font-size: 13px;">{{ item.quantity }}</p>
-            <ion-button (click)="incrementQuantity(item.product.id)" style="--background: #383C3E; --padding-start: 0.5em; --padding-end: 0.5em;">+</ion-button>
+              <ion-button (click)="descrementQuantity(item.product.id)" style="--background: #383C3E;; --padding-start: 0.6em; --padding-end: 0.6em;">-</ion-button>
+              <p style="font-size: 13px;">{{ item.quantity }}</p>
+              <ion-button (click)="incrementQuantity(item.product.id)" style="--background: #383C3E; --padding-start: 0.5em; --padding-end: 0.5em;">+</ion-button>
             </ion-row>
-            </ion-col>
+          </ion-col>
           <ion-col size="2.5">
             <p>{{ item.quantity * item.product.price }}€</p>
           </ion-col>
